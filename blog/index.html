@@ -1,0 +1,144 @@
+---
+layout: default
+title: Blog
+---
+
+<main class="relative z-10">
+    <!-- Hero Section -->
+    <section class="relative bg-[#1e1e1e] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+        </div>
+        <div class="relative z-10 py-24 lg:py-32">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Salvium <span class="gradient-text">Blog</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Latest news and updates from the Salvium team
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="bg-[#1e1e1e] border-b border-[#00bfa5]/10">
+        <div class="container mx-auto px-4 py-8">
+            <div class="max-w-2xl mx-auto relative group">
+                <input type="text" 
+                       id="blog-search" 
+                       placeholder="Search blog posts..." 
+                       class="w-full bg-[#2a2a2a] text-white placeholder-gray-400 rounded-lg px-4 py-4 pl-12 
+                              border border-[#00bfa5]/10 
+                              focus:outline-none focus:ring-2 focus:ring-[#00bfa5]/50 focus:border-transparent
+                              transition-all duration-300
+                              group-hover:border-[#00bfa5]/30 group-hover:shadow-lg group-hover:shadow-[#00bfa5]/5">
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#00bfa5] transition-colors duration-300
+                           group-hover:text-[#40E0D0]">
+                    <i class="fas fa-search text-lg"></i>
+                </div>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
+                    Press <kbd class="px-2 py-1 bg-[#1e1e1e] rounded border border-gray-600 text-xs">ESC</kbd> to clear
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="container mx-auto px-4 py-16">
+        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {% for post in paginator.posts %}
+            <a href="{{ post.url | relative_url }}" class="group">
+                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    {% if post.image %}
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="w-full h-full object-cover">
+                    </div>
+                    {% endif %}
+                    <div class="p-6">
+                        {% if post.categories %}
+                        <div class="mb-4">
+                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                                {{ post.categories | first }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">{{ post.title }}</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-3">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <div class="flex items-center justify-between">
+                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-gray-500">{{ post.date | date: "%B %d, %Y" }}</time>
+                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                                Read More 
+                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if paginator.total_pages > 1 %}
+        <nav class="mt-12 flex justify-center" aria-label="Blog pagination">
+            <div class="flex items-center gap-2">
+                {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path | relative_url }}" 
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>
+                    Previous
+                </a>
+                {% endif %}
+
+                {% for page in (1..paginator.total_pages) %}
+                    {% if page == paginator.page %}
+                    <span class="px-4 py-2 bg-[#00bfa5] text-white rounded-md">{{ page }}</span>
+                    {% elsif page == 1 %}
+                    <a href="{{ '/blog/' | relative_url }}" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        {{ page }}
+                    </a>
+                    {% else %}
+                    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        {{ page }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path | relative_url }}" 
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    Next
+                    <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+                {% endif %}
+            </div>
+        </nav>
+        {% endif %}
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="{{ '/images/pools.png' | relative_url }}" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="{{ '/get-started' | relative_url }}" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,19 @@
+current directory: /home/siko/Downloads/test-site-sal-main/vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/ext/fastfilereader
+/usr/bin/ruby3.2 -I/usr/lib/ruby/vendor_ruby extconf.rb
+creating Makefile
+
+current directory: /home/siko/Downloads/test-site-sal-main/vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20241218-31472-iv3zun sitelibdir\=./.gem.20241218-31472-iv3zun clean
+
+current directory: /home/siko/Downloads/test-site-sal-main/vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20241218-31472-iv3zun sitelibdir\=./.gem.20241218-31472-iv3zun
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.so
+
+current directory: /home/siko/Downloads/test-site-sal-main/vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20241218-31472-iv3zun sitelibdir\=./.gem.20241218-31472-iv3zun install
+/usr/bin/install -c -m 0755 fastfilereaderext.so ./.gem.20241218-31472-iv3zun
+
+current directory: /home/siko/Downloads/test-site-sal-main/vendor/bundle/ruby/3.2.0/gems/eventmachine-1.2.7/ext/fastfilereader
+make DESTDIR\= sitearchdir\=./.gem.20241218-31472-iv3zun sitelibdir\=./.gem.20241218-31472-iv3zun clean

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Salvium Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/design-system.css">
+    <link rel="stylesheet" href="/css/cards.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Blog post content styles */
+        .prose {
+            color: var(--color-text);
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+
+        .prose h1, .prose h2, .prose h3, .prose h4 {
+            color: white;
+            font-family: var(--font-primary);
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .prose h1 {
+            font-size: 2.25em;
+            font-weight: 700;
+        }
+
+        .prose h2 {
+            font-size: 1.875em;
+            font-weight: 600;
+        }
+
+        .prose h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .prose h4 {
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+
+        .prose p {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            line-height: 1.8;
+        }
+
+        .prose a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .prose a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .prose code {
+            background: rgba(0, 191, 165, 0.1);
+            color: var(--color-primary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.875em;
+        }
+
+        .prose pre {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 1.25em;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid rgba(0, 191, 165, 0.1);
+        }
+
+        .prose pre code {
+            background: none;
+            color: var(--color-text);
+            padding: 0;
+        }
+
+        .prose ul, .prose ol {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid var(--color-primary);
+            padding-left: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+            background: rgba(0, 191, 165, 0.05);
+            padding: 1em;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Content -->
+    <main class="relative z-10">
+    <!-- Hero Section -->
+    <section class="relative bg-[#1e1e1e] overflow-hidden">
+        <div class="absolute inset-0">
+            <img src="/images/newimages/Page%20Headers/Blog%20Header.jpg" alt="Blog Header" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+        </div>
+        <div class="relative z-10 py-24 lg:py-32">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                        Salvium <span class="gradient-text">Blog</span>
+                    </h1>
+                    <p class="text-xl text-gray-300 mb-8">
+                        Latest news and updates from the Salvium team
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <div class="bg-[#1e1e1e] border-b border-[#00bfa5]/10">
+        <div class="container mx-auto px-4 py-8">
+            <div class="max-w-2xl mx-auto relative group">
+                <input type="text" 
+                       id="blog-search" 
+                       placeholder="Search blog posts..." 
+                       class="w-full bg-[#2a2a2a] text-white placeholder-gray-400 rounded-lg px-4 py-4 pl-12 
+                              border border-[#00bfa5]/10 
+                              focus:outline-none focus:ring-2 focus:ring-[#00bfa5]/50 focus:border-transparent
+                              transition-all duration-300
+                              group-hover:border-[#00bfa5]/30 group-hover:shadow-lg group-hover:shadow-[#00bfa5]/5">
+                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#00bfa5] transition-colors duration-300
+                           group-hover:text-[#40E0D0]">
+                    <i class="fas fa-search text-lg"></i>
+                </div>
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
+                    Press <kbd class="px-2 py-1 bg-[#1e1e1e] rounded border border-gray-600 text-xs">ESC</kbd> to clear
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="container mx-auto px-4 py-16">
+        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            
+            <a href="/blog/privacy-ama/" class="group">
+                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="/New%20Blog%20Images/Blog%20AMA%20PP.jpg" alt="TRANSCRIPT - Pursuit of Privacy AMA" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        
+                        <div class="mb-4">
+                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                                Community
+                            </span>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">TRANSCRIPT - Pursuit of Privacy AMA</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-3">Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.</p>
+                        <div class="flex items-center justify-between">
+                            <time datetime="2024-12-18T08:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
+                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                                Read More 
+                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            
+            <a href="/blog/protocol-tx-innovation/" class="group">
+                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="/images/blog/protocol-tx.jpg" alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        
+                        <div class="mb-4">
+                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                                Technology
+                            </span>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-3">Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.</p>
+                        <div class="flex items-center justify-between">
+                            <time datetime="2024-12-18T06:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
+                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                                Read More 
+                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            
+            <a href="/blog/treasury-update/" class="group">
+                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+                    
+                    <div class="aspect-w-16 aspect-h-9">
+                        <img src="/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" alt="Salvium Treasury Update - August 2024 funds locked for 2-years" class="w-full h-full object-cover">
+                    </div>
+                    
+                    <div class="p-6">
+                        
+                        <div class="mb-4">
+                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                                Treasury
+                            </span>
+                        </div>
+                        
+                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
+                        <p class="text-gray-400 mb-4 line-clamp-3">Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.</p>
+                        <div class="flex items-center justify-between">
+                            <time datetime="2024-12-18T04:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
+                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                                Read More 
+                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            
+        </div>
+
+        <!-- Pagination -->
+        
+        <nav class="mt-12 flex justify-center" aria-label="Blog pagination">
+            <div class="flex items-center gap-2">
+                
+                <a href="/blog/" 
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>
+                    Previous
+                </a>
+                
+
+                
+                    
+                    <a href="/blog/" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        1
+                    </a>
+                    
+                
+                    
+                    <span class="px-4 py-2 bg-[#00bfa5] text-white rounded-md">2</span>
+                    
+                
+
+                
+            </div>
+        </nav>
+        
+    </div>
+
+    <!-- CTA Section -->
+    <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0">
+            <img src="/images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
+                Ready to Take the <span class="gradient-text">Pill</span>?
+            </h2>
+            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Start your journey with Salvium today and be part of the next generation of Private DeFi.
+            </p>
+            <a href="/get-started" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+                Get Started Now
+            </a>
+        </div>
+    </section>
+</main>
+
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Provide Jekyll paths to JavaScript
+        window.jekyllPaths = {
+            root: '/',
+            images: '/images'
+        };
+    </script>
+    <script data-jekyll-base-url="" src="/js/header_jekyll.js"></script>
+    <script src="/js/blog-search.js"></script>
+    <script src="/js/footer_jekyll.js"></script>
+    <script src="/js/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

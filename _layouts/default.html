@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}Salvium Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/css/typography.css' | relative_url }}">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ '/css/design-system.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/cards.css' | relative_url }}">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Blog post content styles */
+        .prose {
+            color: var(--color-text);
+            max-width: 65ch;
+            margin: 0 auto;
+        }
+
+        .prose h1, .prose h2, .prose h3, .prose h4 {
+            color: white;
+            font-family: var(--font-primary);
+            margin-top: 2em;
+            margin-bottom: 1em;
+        }
+
+        .prose h1 {
+            font-size: 2.25em;
+            font-weight: 700;
+        }
+
+        .prose h2 {
+            font-size: 1.875em;
+            font-weight: 600;
+        }
+
+        .prose h3 {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        .prose h4 {
+            font-size: 1.25em;
+            font-weight: 600;
+        }
+
+        .prose p {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            line-height: 1.8;
+        }
+
+        .prose a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .prose a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .prose code {
+            background: rgba(0, 191, 165, 0.1);
+            color: var(--color-primary);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+            font-size: 0.875em;
+        }
+
+        .prose pre {
+            background: rgba(30, 30, 30, 0.95);
+            padding: 1.25em;
+            border-radius: 4px;
+            overflow-x: auto;
+            border: 1px solid rgba(0, 191, 165, 0.1);
+        }
+
+        .prose pre code {
+            background: none;
+            color: var(--color-text);
+            padding: 0;
+        }
+
+        .prose ul, .prose ol {
+            margin-top: 1.25em;
+            margin-bottom: 1.25em;
+            padding-left: 1.625em;
+        }
+
+        .prose li {
+            margin-top: 0.5em;
+            margin-bottom: 0.5em;
+        }
+
+        .prose blockquote {
+            border-left: 4px solid var(--color-primary);
+            padding-left: 1em;
+            margin: 1.5em 0;
+            font-style: italic;
+            background: rgba(0, 191, 165, 0.05);
+            padding: 1em;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Content -->
+    {{ content }}
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Provide Jekyll paths to JavaScript
+        window.jekyllPaths = {
+            root: '{{ "/" | relative_url }}',
+            images: '{{ "/images" | relative_url }}'
+        };
+    </script>
+    <script data-jekyll-base-url="{{ '' | relative_url }}" src="{{ '/js/header_jekyll.js' | relative_url }}"></script>
+    <script src="{{ '/js/blog-search.js' | relative_url }}"></script>
+    <script src="{{ '/js/footer_jekyll.js' | relative_url }}"></script>
+    <script src="{{ '/js/particles.js' | relative_url }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
