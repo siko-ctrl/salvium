@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div class="text-center">
-                    <img src="${window.jekyllPaths.images}/salvium_coin_square_white_512x512px_transparent.png" 
+                    <img src="${window.jekyllPaths.root}/Salvium_assets/coin_icon/white/square/transparent/salvium_coin_square_white_512x512px_transparent.png" 
                          alt="Salvium Logo" 
                          style="height: 80px; width: auto;" 
                          class="mb-6 mx-auto">
