@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/css/typography.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/typography.css">
     <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{{ '/css/design-system.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/css/cards.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/design-system.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/cards.css">
     
     <!-- Custom Styles -->
     <style>
@@ -174,14 +174,14 @@
     <script>
         // Provide Jekyll paths to JavaScript
         window.jekyllPaths = {
-            root: '{{ "/" | relative_url }}',
-            images: '{{ "/images" | relative_url }}'
+            root: '{{ site.baseurl }}',
+            images: '{{ site.baseurl }}/images'
         };
     </script>
-    <script data-jekyll-base-url="{{ '' | relative_url }}" src="{{ '/js/header_jekyll.js' | relative_url }}"></script>
-    <script src="{{ '/js/blog-search.js' | relative_url }}"></script>
-    <script src="{{ '/js/footer_jekyll.js' | relative_url }}"></script>
-    <script src="{{ '/js/particles.js' | relative_url }}"></script>
+    <script data-jekyll-base-url="{{ site.baseurl }}" src="{{ site.baseurl }}/js/header_jekyll.js"></script>
+    <script src="{{ site.baseurl }}/js/blog-search.js"></script>
+    <script src="{{ site.baseurl }}/js/footer_jekyll.js"></script>
+    <script src="{{ site.baseurl }}/js/particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
