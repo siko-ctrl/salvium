@@ -7,17 +7,21 @@ document.addEventListener('DOMContentLoaded', async function() {
     // Store the original content
     const originalContent = blogGrid.innerHTML;
 
-    // Get the base URL from Jekyll
-    const baseUrl = document.querySelector('script[data-jekyll-base-url]')?.dataset.jekyllBaseUrl || '';
+    // Get the base URL from window.jekyllPaths
+    const baseUrl = window.jekyllPaths?.root || '';
 
     // Fetch all posts data
     let allPosts = [];
     try {
-        const response = await fetch(baseUrl + '/posts.json');
+        const response = await fetch(`${baseUrl}/posts.json`);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         allPosts = data.posts;
     } catch (error) {
         console.error('Error loading posts data:', error);
+        return;
     }
 
     function filterPosts(searchTerm) {
