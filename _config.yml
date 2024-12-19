@@ -28,6 +28,11 @@ defaults:
       layout: "default"
   -
     scope:
+      path: "images"
+    values:
+      image: true
+  -
+    scope:
       path: "New Blog Images"
     values:
       image: true
@@ -58,6 +63,7 @@ defaults:
 include:
   - css
   - js
+  - images
   - New Blog Images
   - Salvium_assets
   - _posts
@@ -82,6 +88,7 @@ exclude:
 keep_files:
   - css
   - js
+  - images
   - New Blog Images
   - Salvium_assets
   - posts.json
@@ -90,4 +97,4 @@ keep_files:
 collections:
   posts:
     output: true
-    permalink: /blog/:title/{{ ... }}
+    permalink: /blog/:title/
