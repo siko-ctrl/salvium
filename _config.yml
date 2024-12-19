@@ -23,7 +23,12 @@ paginate_path: /blog/page/:num/
 defaults:
   -
     scope:
-      path: "assets"
+      path: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: "New Blog Images"
     values:
       image: true
   -
@@ -41,10 +46,29 @@ defaults:
 include:
   - css
   - js
-  - assets
-  - images
   - New Blog Images
-  - Salvium_assets
+  - _posts
+  - blog
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+  - .gitignore
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+# Keep files
+keep_files:
+  - css
+  - js
+  - New Blog Images
 
 # Collections
 collections:
@@ -61,17 +85,3 @@ defaults:
     values:
       layout: "post"
       permalink: /blog/:title/
-
-# Exclude from processing
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - package.json
-  - package-lock.json
-  - README.md
-  - .gitignore
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
