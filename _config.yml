@@ -33,6 +33,11 @@ defaults:
       image: true
   -
     scope:
+      path: "Salvium_assets"
+    values:
+      image: true
+  -
+    scope:
       path: "css"
     values:
       css: true
@@ -47,6 +52,7 @@ include:
   - css
   - js
   - New Blog Images
+  - Salvium_assets
   - _posts
   - blog
 
@@ -69,6 +75,7 @@ keep_files:
   - css
   - js
   - New Blog Images
+  - Salvium_assets
 
 # Collections
 collections:

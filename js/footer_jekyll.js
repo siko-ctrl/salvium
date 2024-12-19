@@ -6,8 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="text-center">
                     <img src="${window.jekyllPaths.root}/Salvium_assets/coin_icon/white/square/transparent/salvium_coin_square_white_512x512px_transparent.png" 
                          alt="Salvium Logo" 
-                         style="height: 80px; width: auto;" 
-                         class="mb-6 mx-auto">
+                         class="h-20 w-auto mx-auto mb-6">
                     <p class="text-white max-w-md mx-auto mb-6 font-arial">Private blockchain with DeFi</p>
                     <!-- Social Icons -->
                     <div class="flex justify-center space-x-6">

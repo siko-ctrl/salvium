@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
-                <a href="${window.jekyllPaths.root}" class="flex items-center">
-                    <img src="${window.jekyllPaths.root}/Salvium_assets/wordmark_logo/white/svg/salvium_wordmark_white_1024x1024px.svg" alt="Salvium Logo" class="w-24 opacity-100" style="height: auto;">
+                <a href="${window.jekyllPaths.root}/" class="flex items-center">
+                    <img src="${window.jekyllPaths.root}/Salvium_assets/wordmark_logo/white/svg/salvium_wordmark_white_1024x1024px.svg" alt="Salvium Logo" class="h-8 w-auto opacity-100">
                 </a>
 
                 <!-- Desktop Navigation -->
