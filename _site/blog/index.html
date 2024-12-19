@@ -13,6 +13,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/salvium/css/design-system.css">
     <link rel="stylesheet" href="/salvium/css/cards.css">
+    <link rel="stylesheet" href="/salvium/css/blog-post.css">
     
     <!-- Custom Styles -->
     <style>
@@ -66,98 +67,6 @@
             border-bottom: 1px solid rgba(0, 191, 165, 0.1);
             transition: all 0.3s ease;
         }
-
-        /* Blog post content styles */
-        .prose {
-            color: var(--color-text);
-            max-width: 65ch;
-            margin: 0 auto;
-        }
-
-        .prose h1, .prose h2, .prose h3, .prose h4 {
-            color: white;
-            font-family: var(--font-primary);
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-
-        .prose h1 {
-            font-size: 2.25em;
-            font-weight: 700;
-        }
-
-        .prose h2 {
-            font-size: 1.875em;
-            font-weight: 600;
-        }
-
-        .prose h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-        }
-
-        .prose h4 {
-            font-size: 1.25em;
-            font-weight: 600;
-        }
-
-        .prose p {
-            margin-top: 1.25em;
-            margin-bottom: 1.25em;
-            line-height: 1.8;
-        }
-
-        .prose a {
-            color: var(--color-primary);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .prose a:hover {
-            color: var(--color-primary-dark);
-        }
-
-        .prose code {
-            background: rgba(0, 191, 165, 0.1);
-            color: var(--color-primary);
-            padding: 0.2em 0.4em;
-            border-radius: 3px;
-            font-size: 0.875em;
-        }
-
-        .prose pre {
-            background: rgba(30, 30, 30, 0.95);
-            padding: 1.25em;
-            border-radius: 4px;
-            overflow-x: auto;
-            border: 1px solid rgba(0, 191, 165, 0.1);
-        }
-
-        .prose pre code {
-            background: none;
-            color: var(--color-text);
-            padding: 0;
-        }
-
-        .prose ul, .prose ol {
-            margin-top: 1.25em;
-            margin-bottom: 1.25em;
-            padding-left: 1.625em;
-        }
-
-        .prose li {
-            margin-top: 0.5em;
-            margin-bottom: 0.5em;
-        }
-
-        .prose blockquote {
-            border-left: 4px solid var(--color-primary);
-            padding-left: 1em;
-            margin: 1.5em 0;
-            font-style: italic;
-            background: rgba(0, 191, 165, 0.05);
-            padding: 1em;
-        }
     </style>
 </head>
 <body class="bg-[#1e1e1e]">
@@ -200,36 +109,10 @@
         </div>
     </section>
 
-    <!-- Search Section -->
-    <div class="bg-[#1e1e1e] border-b border-[#00bfa5]/10 mb-16">
-        <div class="container mx-auto px-4 py-8">
-            <div class="max-w-2xl mx-auto">
-                <div class="relative group">
-                    <div class="bg-gradient-to-b from-[rgba(40,40,40,0.95)] to-[rgba(30,30,30,0.98)] rounded-none border border-[#00bfa5]/10 transition-all duration-300 group-hover:border-[#00bfa5]/30 group-hover:shadow-lg group-hover:shadow-[#00bfa5]/5">
-                        <input type="text" 
-                               id="blog-search" 
-                               placeholder="Search blog posts..." 
-                               class="w-full bg-transparent text-white placeholder-gray-400 rounded-none px-4 py-4 pl-12 
-                                      focus:outline-none focus:ring-2 focus:ring-[#00bfa5]/50
-                                      transition-all duration-300">
-                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#00bfa5] transition-colors duration-300
-                                   group-hover:text-[#40E0D0]">
-                            <i class="fas fa-search text-lg"></i>
-                        </div>
-                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm hidden md:block">
-                            Press <kbd class="px-2 py-1 bg-[#1e1e1e] rounded border border-[#00bfa5]/10 text-xs">ESC</kbd> to clear
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Blog Grid -->
-    <div class="container mx-auto px-4 py-16">
+    <div class="container mx-auto px-4 -mt-12 pb-16">
         <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             
-            <a href="/salvium/blog/v06-series-update/" class="group">
+            <a href="/salvium/blog/v06-series-update/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -246,18 +129,18 @@
                         
                         <h2 class="card-title">Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm</h2>
                         <p class="card-description line-clamp-3">Introducing key improvements in Salvium v0.6, featuring a new difficulty adjustment algorithm for better network stability.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T12:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/salvium/blog/evolution-of-privacy/" class="group">
+            <a href="/salvium/blog/evolution-of-privacy/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -274,18 +157,18 @@
                         
                         <h2 class="card-title">The Evolution of Privacy in Cryptocurrency</h2>
                         <p class="card-description line-clamp-3">A look at how cryptocurrency privacy has evolved from its early days to modern compliance-aware solutions.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T11:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/salvium/blog/desktop-wallet-launch/" class="group">
+            <a href="/salvium/blog/desktop-wallet-launch/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -302,18 +185,18 @@
                         
                         <h2 class="card-title">Introducing Our New Desktop Wallet</h2>
                         <p class="card-description line-clamp-3">Announcing the launch of our new desktop wallet, designed to provide a seamless and secure experience for managing your digital assets.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T11:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/salvium/blog/protocol-audit/" class="group">
+            <a href="/salvium/blog/protocol-audit/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -330,18 +213,18 @@
                         
                         <h2 class="card-title">Protocol Security: A Comprehensive Audit Overview</h2>
                         <p class="card-description line-clamp-3">An in-depth look at our recent protocol security audit, highlighting our commitment to maintaining the highest security standards in blockchain technology.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T10:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/salvium/blog/dawn-of-new-market/" class="group">
+            <a href="/salvium/blog/dawn-of-new-market/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -358,18 +241,18 @@
                         
                         <h2 class="card-title">The Dawn of a New Market</h2>
                         <p class="card-description line-clamp-3">A new market opportunity emerges as privacy coins evolve to meet regulatory requirements while maintaining strong privacy features.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T10:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/salvium/blog/redefining-cryptocurrency/" class="group">
+            <a href="/salvium/blog/redefining-cryptocurrency/" class="group h-full">
                 <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
@@ -386,11 +269,11 @@
                         
                         <h2 class="card-title">Redefining Cryptocurrency for the Modern Era</h2>
                         <p class="card-description line-clamp-3">A fresh perspective on how modern cryptocurrencies are evolving to meet the demands of today's financial landscape while maintaining core blockchain principles.</p>
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between mt-auto">
                             <time datetime="2024-12-18T09:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
                             <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-right"></i>
+                                <i class="fas fa-chevron-down"></i>
                             </span>
                         </div>
                     </div>
@@ -489,7 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     </script>
     <script src="/salvium/js/header_jekyll.js"></script>
-    <script src="/salvium/js/blog-search.js"></script>
     <script src="/salvium/js/footer_jekyll.js"></script>
     <script src="/salvium/js/particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>

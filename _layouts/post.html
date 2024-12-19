@@ -4,128 +4,31 @@ layout: default
 <main class="relative z-10">
     <!-- Hero Section -->
     <section class="relative bg-[#1e1e1e] overflow-hidden">
-        <div class="absolute inset-0">
+        <div class="relative">
             {% if page.image %}
-            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full h-full object-cover opacity-30">
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full object-cover h-[400px]">
             {% else %}
-            <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full h-full object-cover opacity-30">
+            <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full object-cover h-[400px]">
             {% endif %}
-            <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
-        </div>
-        <div class="relative z-10 py-24 lg:py-32">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading">{{ page.title }}</h1>
-                    <div class="flex items-center text-gray-300 text-xl">
-                        <time datetime="{{ page.date | date_to_xmlschema }}" class="font-medium">{{ page.date | date: "%B %d, %Y" }}</time>
-                        {% if page.categories %}
-                        <span class="mx-2 text-[#40E0D0]">•</span>
-                        <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-none">{{ page.categories | first }}</span>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <article class="container mx-auto px-4 py-12">
-        <div class="prose prose-invert prose-lg max-w-4xl mx-auto bg-[#2a2a2a] rounded-none shadow-lg">
-            <style>
-                /* Custom Prose Styles */
-                .prose {
-                    --tw-prose-body: #b0b0b0;
-                    --tw-prose-headings: #e0e0e0;
-                    --tw-prose-links: #40E0D0;
-                    --tw-prose-bold: #e0e0e0;
-                    --tw-prose-counters: #40E0D0;
-                    --tw-prose-bullets: #40E0D0;
-                    --tw-prose-hr: rgba(0, 191, 165, 0.1);
-                    --tw-prose-quotes: #e0e0e0;
-                    --tw-prose-quote-borders: #00bfa5;
-                    --tw-prose-captions: #b0b0b0;
-                    --tw-prose-code: #40E0D0;
-                    --tw-prose-pre-code: #e0e0e0;
-                    --tw-prose-pre-bg: #2a2a2a;
-                    --tw-prose-invert-body: #b0b0b0;
-                    --tw-prose-invert-headings: #e0e0e0;
-                    --tw-prose-invert-links: #40E0D0;
-                    --tw-prose-invert-bold: #e0e0e0;
-                }
-
-                .prose h2 {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-3xl);
-                    margin-top: 2.5em;
-                    margin-bottom: 1em;
-                }
-
-                .prose h3 {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-2xl);
-                    margin-top: 2em;
-                    margin-bottom: 0.8em;
-                }
-
-                .prose h4 {
-                    font-family: var(--font-heading);
-                    font-size: var(--text-xl);
-                    margin-top: 1.8em;
-                    margin-bottom: 0.6em;
-                }
-
-                .prose p {
-                    margin-top: 1.5em;
-                    margin-bottom: 1.5em;
-                    line-height: 1.8;
-                }
-
-                .prose a {
-                    text-decoration: none;
-                    font-weight: 500;
-                    transition: color 0.2s ease;
-                }
-
-                .prose a:hover {
-                    color: #00bfa5;
-                }
-
-                .prose strong {
-                    font-weight: 600;
-                }
-
-                .prose ul {
-                    margin-top: 1.5em;
-                    margin-bottom: 1.5em;
-                }
-
-                .prose li {
-                    margin-top: 0.5em;
-                    margin-bottom: 0.5em;
-                }
-
-                .prose blockquote {
-                    font-style: italic;
-                    border-left-color: #00bfa5;
-                    background: rgba(0, 191, 165, 0.05);
-                    padding: 1em 1.5em;
-                    border-radius: 0;
-                }
-
-                .prose code {
-                    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-                    background: rgba(64, 224, 208, 0.1);
-                    padding: 0.2em 0.4em;
-                    border-radius: 0;
-                }
-
-                .prose pre {
-                    background: #2a2a2a;
-                    padding: 1.5em;
-                    border-radius: 0;
-                    overflow-x: auto;
-                }
-            </style>
-            {{ content }}
+    <article class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="py-12">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading">{{ page.title }}</h1>
+                <div class="flex items-center text-gray-300 text-xl mb-8">
+                    <time datetime="{{ page.date | date_to_xmlschema }}" class="font-medium">{{ page.date | date: "%B %d, %Y" }}</time>
+                    {% if page.categories %}
+                    <span class="mx-2 text-[#40E0D0]">•</span>
+                    <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-none">{{ page.categories | first }}</span>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div class="prose prose-invert prose-lg mx-auto bg-[#2a2a2a] rounded-none shadow-lg mb-12 p-8">
+                {{ content }}
+            </div>
         </div>
     </article>
 
