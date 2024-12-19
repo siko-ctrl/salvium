@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/typography.css">
+    <link rel="stylesheet" href="/salvium/css/typography.css">
     <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/design-system.css">
-    <link rel="stylesheet" href="/css/cards.css">
+    <link rel="stylesheet" href="/salvium/css/design-system.css">
+    <link rel="stylesheet" href="/salvium/css/cards.css">
     
     <!-- Custom Styles -->
     <style>
@@ -169,7 +169,7 @@
     <!-- Hero Section -->
     <section class="relative bg-[#1e1e1e] overflow-hidden">
         <div class="absolute inset-0">
-            <img src="/images/newimages/Page%20Headers/Blog%20Header.jpg" alt="Blog Header" class="w-full h-full object-cover opacity-30">
+            <img src="/salvium/images/newimages/Page%20Headers/Blog%20Header.jpg" alt="Blog Header" class="w-full h-full object-cover opacity-30">
             <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
         </div>
         <div class="relative z-10 py-24 lg:py-32">
@@ -187,23 +187,25 @@
     </section>
 
     <!-- Search Section -->
-    <div class="bg-[#1e1e1e] border-b border-[#00bfa5]/10">
+    <div class="bg-[#1e1e1e] border-b border-[#00bfa5]/10 mb-16">
         <div class="container mx-auto px-4 py-8">
-            <div class="max-w-2xl mx-auto relative group">
-                <input type="text" 
-                       id="blog-search" 
-                       placeholder="Search blog posts..." 
-                       class="w-full bg-[#2a2a2a] text-white placeholder-gray-400 rounded-lg px-4 py-4 pl-12 
-                              border border-[#00bfa5]/10 
-                              focus:outline-none focus:ring-2 focus:ring-[#00bfa5]/50 focus:border-transparent
-                              transition-all duration-300
-                              group-hover:border-[#00bfa5]/30 group-hover:shadow-lg group-hover:shadow-[#00bfa5]/5">
-                <div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#00bfa5] transition-colors duration-300
-                           group-hover:text-[#40E0D0]">
-                    <i class="fas fa-search text-lg"></i>
-                </div>
-                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm">
-                    Press <kbd class="px-2 py-1 bg-[#1e1e1e] rounded border border-gray-600 text-xs">ESC</kbd> to clear
+            <div class="max-w-2xl mx-auto">
+                <div class="relative group">
+                    <div class="bg-gradient-to-b from-[rgba(40,40,40,0.95)] to-[rgba(30,30,30,0.98)] rounded-lg border border-[#00bfa5]/10 transition-all duration-300 group-hover:border-[#00bfa5]/30 group-hover:shadow-lg group-hover:shadow-[#00bfa5]/5">
+                        <input type="text" 
+                               id="blog-search" 
+                               placeholder="Search blog posts..." 
+                               class="w-full bg-transparent text-white placeholder-gray-400 rounded-lg px-4 py-4 pl-12 
+                                      focus:outline-none focus:ring-2 focus:ring-[#00bfa5]/50
+                                      transition-all duration-300">
+                        <div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#00bfa5] transition-colors duration-300
+                                   group-hover:text-[#40E0D0]">
+                            <i class="fas fa-search text-lg"></i>
+                        </div>
+                        <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm hidden md:block">
+                            Press <kbd class="px-2 py-1 bg-[#1e1e1e] rounded border border-[#00bfa5]/10 text-xs">ESC</kbd> to clear
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,84 +215,84 @@
     <div class="container mx-auto px-4 py-16">
         <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             
-            <a href="/blog/privacy-ama/" class="group">
-                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a href="/salvium/blog/privacy-ama/" class="group">
+                <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
-                        <img src="/New%20Blog%20Images/Blog%20AMA%20PP.jpg" alt="TRANSCRIPT - Pursuit of Privacy AMA" class="w-full h-full object-cover">
+                        <img src="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg" alt="TRANSCRIPT - Pursuit of Privacy AMA" class="card-image">
                     </div>
                     
-                    <div class="p-6">
+                    <div class="card-content">
                         
                         <div class="mb-4">
-                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                            <span class="card-tag">
                                 Community
                             </span>
                         </div>
                         
-                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">TRANSCRIPT - Pursuit of Privacy AMA</h2>
-                        <p class="text-gray-400 mb-4 line-clamp-3">Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.</p>
+                        <h2 class="card-title">TRANSCRIPT - Pursuit of Privacy AMA</h2>
+                        <p class="card-description line-clamp-3">Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.</p>
                         <div class="flex items-center justify-between">
-                            <time datetime="2024-12-18T08:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
-                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                            <time datetime="2024-12-18T08:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                                <i class="fas fa-chevron-right"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/blog/protocol-tx-innovation/" class="group">
-                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a href="/salvium/blog/protocol-tx-innovation/" class="group">
+                <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
-                        <img src="/images/blog/protocol-tx.jpg" alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" class="w-full h-full object-cover">
+                        <img src="/salvium/images/blog/protocol-tx.jpg" alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" class="card-image">
                     </div>
                     
-                    <div class="p-6">
+                    <div class="card-content">
                         
                         <div class="mb-4">
-                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                            <span class="card-tag">
                                 Technology
                             </span>
                         </div>
                         
-                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
-                        <p class="text-gray-400 mb-4 line-clamp-3">Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.</p>
+                        <h2 class="card-title">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        <p class="card-description line-clamp-3">Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.</p>
                         <div class="flex items-center justify-between">
-                            <time datetime="2024-12-18T06:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
-                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                            <time datetime="2024-12-18T06:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                                <i class="fas fa-chevron-right"></i>
                             </span>
                         </div>
                     </div>
                 </article>
             </a>
             
-            <a href="/blog/treasury-update/" class="group">
-                <article class="bg-[#2a2a2a] rounded-lg overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <a href="/salvium/blog/treasury-update/" class="group">
+                <article class="ecosystem-card">
                     
                     <div class="aspect-w-16 aspect-h-9">
-                        <img src="/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" alt="Salvium Treasury Update - August 2024 funds locked for 2-years" class="w-full h-full object-cover">
+                        <img src="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" alt="Salvium Treasury Update - August 2024 funds locked for 2-years" class="card-image">
                     </div>
                     
-                    <div class="p-6">
+                    <div class="card-content">
                         
                         <div class="mb-4">
-                            <span class="blog-tag bg-[#00bfa5]/10 text-[#40E0D0] px-3 py-1 rounded-md text-sm">
+                            <span class="card-tag">
                                 Treasury
                             </span>
                         </div>
                         
-                        <h2 class="text-xl font-bold text-white mb-3 group-hover:text-[#40E0D0] transition-colors duration-200">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
-                        <p class="text-gray-400 mb-4 line-clamp-3">Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.</p>
+                        <h2 class="card-title">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
+                        <p class="card-description line-clamp-3">Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.</p>
                         <div class="flex items-center justify-between">
-                            <time datetime="2024-12-18T04:00:00+02:00" class="text-sm text-gray-500">December 18, 2024</time>
-                            <span class="inline-flex items-center text-[#40E0D0] font-medium group-hover:text-white transition-colors duration-200">
+                            <time datetime="2024-12-18T04:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <span class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down ml-2 text-sm transition-transform duration-200 group-hover:translate-y-1"></i>
+                                <i class="fas fa-chevron-right"></i>
                             </span>
                         </div>
                     </div>
@@ -304,7 +306,7 @@
         <nav class="mt-12 flex justify-center" aria-label="Blog pagination">
             <div class="flex items-center gap-2">
                 
-                <a href="/blog/" 
+                <a href="/salvium/blog/" 
                    class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
                     <i class="fas fa-chevron-left mr-2"></i>
                     Previous
@@ -313,7 +315,7 @@
 
                 
                     
-                    <a href="/blog/" 
+                    <a href="/salvium/blog/" 
                        class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
                         1
                     </a>
@@ -334,7 +336,7 @@
     <section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
         <!-- Background Decoration -->
         <div class="absolute inset-0">
-            <img src="/images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+            <img src="/salvium/images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
             <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
         </div>
         
@@ -345,7 +347,7 @@
             <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
                 Start your journey with Salvium today and be part of the next generation of Private DeFi.
             </p>
-            <a href="/get-started" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
+            <a href="/salvium/get-started" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" data-aos="fade-up" data-aos-delay="200">
                 Get Started Now
             </a>
         </div>
@@ -360,14 +362,15 @@
     <script>
         // Provide Jekyll paths to JavaScript
         window.jekyllPaths = {
-            root: '/',
-            images: '/images'
+            root: '/salvium',
+            images: '/salvium/New Blog Images',
+            assets: '/salvium/Salvium_assets'
         };
     </script>
-    <script data-jekyll-base-url="" src="/js/header_jekyll.js"></script>
-    <script src="/js/blog-search.js"></script>
-    <script src="/js/footer_jekyll.js"></script>
-    <script src="/js/particles.js"></script>
+    <script src="/salvium/js/header_jekyll.js"></script>
+    <script src="/salvium/js/blog-search.js"></script>
+    <script src="/salvium/js/footer_jekyll.js"></script>
+    <script src="/salvium/js/particles.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         AOS.init();
