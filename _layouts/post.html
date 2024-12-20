@@ -2,22 +2,20 @@
 layout: default
 ---
 <main class="relative z-10">
-    <!-- Hero Section -->
-    <section class="relative bg-[#1e1e1e] overflow-hidden">
-        <div class="relative">
-            {% if page.image %}
-            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full object-cover h-[400px]">
-            {% else %}
-            <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full object-cover h-[400px]">
-            {% endif %}
-        </div>
-    </section>
-
     <article class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-            <div class="py-12">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 font-heading">{{ page.title }}</h1>
-                <div class="flex items-center text-gray-300 text-xl mb-8">
+            <!-- Header Image -->
+            <div class="relative mb-8 md:mb-12">
+                {% if page.image %}
+                <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="w-full h-[300px] md:h-[450px] lg:h-[600px] object-cover">
+                {% else %}
+                <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full h-[300px] md:h-[450px] lg:h-[600px] object-cover">
+                {% endif %}
+            </div>
+
+            <div class="py-8 md:py-12">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 md:mb-6 font-heading">{{ page.title }}</h1>
+                <div class="flex items-center text-gray-300 text-base md:text-xl mb-6 md:mb-8">
                     <time datetime="{{ page.date | date_to_xmlschema }}" class="font-medium">{{ page.date | date: "%B %d, %Y" }}</time>
                     {% if page.categories %}
                     <span class="mx-2 text-[#40E0D0]">•</span>

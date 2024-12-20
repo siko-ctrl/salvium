@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Check if we're in a blog page
-    const isBlogPage = window.location.pathname.includes('/blog_pages/');
-    const pathPrefix = isBlogPage ? '../' : './';
+    const isBlogPage = window.location.pathname.includes('/blog/');
+    const baseUrl = '/salvium';
+    const imagePath = `${baseUrl}/images/`;
 
     const headerHtml = `
     <nav class="nav-fixed fixed w-full z-50" style="background: rgba(30, 30, 30, 0.98); backdrop-filter: blur(8px); height: 4rem;">
         <div class="container mx-auto px-4 h-full">
             <div class="flex justify-between items-center h-full">
                 <!-- Logo -->
-                <a href="${pathPrefix}index.html" class="flex items-center">
-                    <img src="${pathPrefix}images/salvium_wordmark_white_1024x1024px.svg" alt="Salvium Logo" class="w-24 opacity-100" style="height: auto;">
+                <a href="${baseUrl}/" class="flex items-center">
+                    <img src="${imagePath}salvium_wordmark_white_1024x1024px.svg" alt="Salvium Logo" class="w-24 opacity-100" style="height: auto;">
                 </a>
 
                 <!-- Desktop Navigation -->
@@ -24,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-1">
-                                <a href="${pathPrefix}exchanges.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Exchanges</a>
-                                <a href="${pathPrefix}about.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">About</a>
-                                <a href="${pathPrefix}papers.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Lite Paper</a>
-                                <a href="${pathPrefix}download.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Downloads</a>
+                                <a href="${baseUrl}/exchanges.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Exchanges</a>
+                                <a href="${baseUrl}/about.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">About</a>
+                                <a href="${baseUrl}/papers.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Lite Paper</a>
+                                <a href="${baseUrl}/download.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Downloads</a>
                             </div>
                         </div>
                     </div>
@@ -42,10 +43,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-1">
-                                <a href="${pathPrefix}blog" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
-                                <a href="${pathPrefix}faq.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
+                                <a href="${baseUrl}/blog" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
+                                <a href="${baseUrl}/faq.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
                                 <a href="https://siko-ctrl.github.io/docs-salvium/" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
-                                <a href="${pathPrefix}roadmap.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
+                                <a href="${baseUrl}/roadmap.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
                             </div>
                         </div>
                     </div>
@@ -60,9 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-1">
-                                <a href="${pathPrefix}stats.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Stats</a>
+                                <a href="${baseUrl}/stats.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Stats</a>
                                 <a href="https://explorer.salvium.io/" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Explorer</a>
-                                <a href="${pathPrefix}tools.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">3rd Party Tools</a>
+                                <a href="${baseUrl}/tools.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">3rd Party Tools</a>
                             </div>
                         </div>
                     </div>
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </button>
                         <div class="dropdown-menu absolute left-0 mt-2 w-48 rounded-lg shadow-xl hidden" style="background: rgba(30, 30, 30, 0.98);">
                             <div class="py-1">
-                                <a href="${pathPrefix}community.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Community</a>
+                                <a href="${baseUrl}/community.html" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Community</a>
                                 <a href="https://github.com/salvium" class="block px-4 py-2 transition-all duration-200 font-arial" style="color: #40E0D0">GitHub</a>
                             </div>
                         </div>
@@ -107,10 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </svg>
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2">
-                        <a href="${pathPrefix}exchanges.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Exchanges</a>
-                        <a href="${pathPrefix}about.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">About</a>
-                        <a href="${pathPrefix}papers.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Lite Paper</a>
-                        <a href="${pathPrefix}download.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Downloads</a>
+                        <a href="${baseUrl}/exchanges.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Exchanges</a>
+                        <a href="${baseUrl}/about.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">About</a>
+                        <a href="${baseUrl}/papers.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Lite Paper</a>
+                        <a href="${baseUrl}/download.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Downloads</a>
                     </div>
                 </div>
 
@@ -123,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         </svg>
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2">
-                        <a href="${pathPrefix}blog" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
-                        <a href="${pathPrefix}faq.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
+                        <a href="${baseUrl}/blog" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Blog</a>
+                        <a href="${baseUrl}/faq.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">FAQ</a>
                         <a href="https://siko-ctrl.github.io/docs-salvium/" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Knowledge Base</a>
-                        <a href="${pathPrefix}roadmap.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
+                        <a href="${baseUrl}/roadmap.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Roadmap</a>
                     </div>
                 </div>
 
@@ -139,9 +140,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         </svg>
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2">
-                        <a href="${pathPrefix}stats.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Stats</a>
+                        <a href="${baseUrl}/stats.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Stats</a>
                         <a href="https://explorer.salvium.io/" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Explorer</a>
-                        <a href="${pathPrefix}tools.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">3rd Party Tools</a>
+                        <a href="${baseUrl}/tools.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">3rd Party Tools</a>
                     </div>
                 </div>
 
@@ -154,7 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         </svg>
                     </button>
                     <div class="mobile-dropdown-menu hidden pl-4 pb-2">
-                        <a href="${pathPrefix}community.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Community</a>
+                        <a href="${baseUrl}/community.html" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">Community</a>
                         <a href="https://github.com/salvium" class="block py-2 transition-all duration-200 font-arial" style="color: #40E0D0">GitHub</a>
                     </div>
                 </div>

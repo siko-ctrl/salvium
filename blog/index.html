@@ -3,28 +3,23 @@ layout: default
 title: Blog
 ---
 
-<style>
-    :root {
-        --primary: #00bfa5;
-        --primary-dark: #009688;
-    }
-    .btn-primary {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-        color: white !important;
-        border-radius: 4px;
-        text-decoration: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-</style>
+<link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
 
 <main class="relative z-10">
     <!-- Hero Section -->
-    <section class="relative bg-[#1e1e1e] overflow-hidden">
+    <section class="blog-hero">
         <div class="absolute inset-0">
-            <img src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" alt="Blog Header" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            <img 
+                src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
+                alt="Blog Header" 
+                class="blog-hero__image"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchpriority="high">
+            <div class="blog-hero__gradient"></div>
         </div>
-        <div class="relative z-10 py-24 lg:py-32">
+        <div class="blog-hero__content">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -39,14 +34,21 @@ title: Blog
     </section>
 
     <div class="container mx-auto px-4 -mt-12 pb-16">
-        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div class="blog-grid mb-12">
             {% for post in paginator.posts %}
-            <div class="h-full">
+            <div class="blog-grid-item">
                 <article class="ecosystem-card h-full flex flex-col">
                     {% if post.image %}
-                    <div class="aspect-w-16 aspect-h-9">
-                        <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="card-image">
-                    </div>
+                    <a href="{{ post.url | relative_url }}">
+                        <div class="blog-post-image-container">
+                            <img 
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                data-src="{{ post.image | relative_url }}" 
+                                alt="{{ post.title }}" 
+                                class="blog-post-image lazy-image"
+                                loading="lazy">
+                        </div>
+                    </a>
                     {% endif %}
                     <div class="card-content flex-1 flex flex-col">
                         {% if post.categories %}
@@ -56,13 +58,17 @@ title: Blog
                             </span>
                         </div>
                         {% endif %}
-                        <h2 class="card-title mb-4">{{ post.title }}</h2>
+                        <a href="{{ post.url | relative_url }}" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">{{ post.title }}</h2>
+                        </a>
                         <p class="card-description flex-1">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
                         <div class="flex items-center justify-between mt-auto pt-4">
-                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">{{ post.date | date: "%B %d, %Y" }}</time>
+                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
                             <a href="{{ post.url | relative_url }}" class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-right ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -115,23 +121,37 @@ title: Blog
     {% include cta.html %}
 </main>
 
-<script>
-function handleGetStarted(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    window.location.href = '../get-started.html';
-}
+<script defer>
+    // Lazy loading implementation
+    document.addEventListener('DOMContentLoaded', function() {
+        const lazyImages = document.querySelectorAll('img.lazy-image');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px'
+        });
 
-// Override the document click handler from header.js for our button
-document.addEventListener('DOMContentLoaded', function() {
-    const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
-    if (getStartedBtn) {
-        getStartedBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = '../get-started.html';
-            return false;
-        }, true);
+        lazyImages.forEach(img => imageObserver.observe(img));
+    });
+
+    function handleGetStarted(event) {
+        event.preventDefault();
+        window.location.href = '../get-started.html';
     }
-});
+
+    // Optimize event listener attachment
+    document.addEventListener('DOMContentLoaded', function() {
+        const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
+        if (getStartedBtn) {
+            getStartedBtn.addEventListener('click', handleGetStarted, true);
+        }
+    });
 </script>

@@ -2,11 +2,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Get the current path and base URL
     const currentPath = window.location.pathname;
     const isGitHubPages = window.location.hostname.includes('github.io');
-    const baseUrl = isGitHubPages ? 'https://siko-ctrl.github.io/salvium-site/' : '';
-    const repoName = isGitHubPages ? '/salvium-site' : '';
-    const basePath = isGitHubPages ? '' : './';
-    const isInSubdirectory = !currentPath.includes('salvium-site');
-    const imagePath = isInSubdirectory ? '../images/' : './images/';
+    const baseUrl = '/salvium';
+    const imagePath = `${baseUrl}/images/`;
     
     const footerHtml = `
     <footer class="border-t border-[#40E0D0]/10 mt-0 pt-16">
@@ -14,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div class="text-center">
                     <img src="${imagePath}salvium_coin_square_white_512x512px_transparent.png" 
-                         onerror="this.src='./images/salvium_coin_square_white_512x512px_transparent.png'"
                          alt="Salvium Logo" 
                          style="height: 80px; width: auto;" 
                          class="mb-6 mx-auto">

@@ -74,28 +74,23 @@
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Content -->
-    <style>
-    :root {
-        --primary: #00bfa5;
-        --primary-dark: #009688;
-    }
-    .btn-primary {
-        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-        color: white !important;
-        border-radius: 4px;
-        text-decoration: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-</style>
+    <link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
 
 <main class="relative z-10">
     <!-- Hero Section -->
-    <section class="relative bg-[#1e1e1e] overflow-hidden">
+    <section class="blog-hero">
         <div class="absolute inset-0">
-            <img src="/salvium/images/newimages/Page%20Headers/Blog%20Header.jpg" alt="Blog Header" class="w-full h-full object-cover opacity-30">
-            <div class="absolute inset-0 bg-gradient-to-b from-[#1e1e1e]/80 to-[#1e1e1e]"></div>
+            <img 
+                src="/salvium/images/newimages/Page%20Headers/Blog%20Header.jpg" 
+                alt="Blog Header" 
+                class="blog-hero__image"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchpriority="high">
+            <div class="blog-hero__gradient"></div>
         </div>
-        <div class="relative z-10 py-24 lg:py-32">
+        <div class="blog-hero__content">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -110,14 +105,21 @@
     </section>
 
     <div class="container mx-auto px-4 -mt-12 pb-16">
-        <div id="blog-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div class="blog-grid mb-12">
             
-            <div class="h-full">
+            <div class="blog-grid-item">
                 <article class="ecosystem-card h-full flex flex-col">
                     
-                    <div class="aspect-w-16 aspect-h-9">
-                        <img src="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg" alt="TRANSCRIPT - Pursuit of Privacy AMA" class="card-image">
-                    </div>
+                    <a href="/salvium/blog/privacy-ama/">
+                        <div class="blog-post-image-container">
+                            <img 
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                data-src="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg" 
+                                alt="TRANSCRIPT - Pursuit of Privacy AMA" 
+                                class="blog-post-image lazy-image"
+                                loading="lazy">
+                        </div>
+                    </a>
                     
                     <div class="card-content flex-1 flex flex-col">
                         
@@ -127,25 +129,36 @@
                             </span>
                         </div>
                         
-                        <h2 class="card-title mb-4">TRANSCRIPT - Pursuit of Privacy AMA</h2>
+                        <a href="/salvium/blog/privacy-ama/" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">TRANSCRIPT - Pursuit of Privacy AMA</h2>
+                        </a>
                         <p class="card-description flex-1">Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.</p>
                         <div class="flex items-center justify-between mt-auto pt-4">
-                            <time datetime="2024-12-18T08:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <time datetime="2024-12-18T08:00:00+02:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
                             <a href="/salvium/blog/privacy-ama/" class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </article>
             </div>
             
-            <div class="h-full">
+            <div class="blog-grid-item">
                 <article class="ecosystem-card h-full flex flex-col">
                     
-                    <div class="aspect-w-16 aspect-h-9">
-                        <img src="/salvium/images/blog/protocol-tx.jpg" alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" class="card-image">
-                    </div>
+                    <a href="/salvium/blog/protocol-tx-innovation/">
+                        <div class="blog-post-image-container">
+                            <img 
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                data-src="/salvium/images/blog/protocol-tx.jpg" 
+                                alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" 
+                                class="blog-post-image lazy-image"
+                                loading="lazy">
+                        </div>
+                    </a>
                     
                     <div class="card-content flex-1 flex flex-col">
                         
@@ -155,25 +168,36 @@
                             </span>
                         </div>
                         
-                        <h2 class="card-title mb-4">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        <a href="/salvium/blog/protocol-tx-innovation/" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">Protocol_tx - The Innovation Powering Salvium's Blockchain Future</h2>
+                        </a>
                         <p class="card-description flex-1">Introducing Protocol_tx, the groundbreaking technology that powers Salvium's innovative approach to blockchain privacy and security.</p>
                         <div class="flex items-center justify-between mt-auto pt-4">
-                            <time datetime="2024-12-18T06:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <time datetime="2024-12-18T06:00:00+02:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
                             <a href="/salvium/blog/protocol-tx-innovation/" class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-right ml-2"></i>
                             </a>
                         </div>
                     </div>
                 </article>
             </div>
             
-            <div class="h-full">
+            <div class="blog-grid-item">
                 <article class="ecosystem-card h-full flex flex-col">
                     
-                    <div class="aspect-w-16 aspect-h-9">
-                        <img src="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" alt="Salvium Treasury Update - August 2024 funds locked for 2-years" class="card-image">
-                    </div>
+                    <a href="/salvium/blog/treasury-update/">
+                        <div class="blog-post-image-container">
+                            <img 
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                data-src="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" 
+                                alt="Salvium Treasury Update - August 2024 funds locked for 2-years" 
+                                class="blog-post-image lazy-image"
+                                loading="lazy">
+                        </div>
+                    </a>
                     
                     <div class="card-content flex-1 flex flex-col">
                         
@@ -183,13 +207,17 @@
                             </span>
                         </div>
                         
-                        <h2 class="card-title mb-4">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
+                        <a href="/salvium/blog/treasury-update/" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">Salvium Treasury Update - August 2024 funds locked for 2-years</h2>
+                        </a>
                         <p class="card-description flex-1">Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.</p>
                         <div class="flex items-center justify-between mt-auto pt-4">
-                            <time datetime="2024-12-18T04:00:00+02:00" class="text-sm text-[#b0b0b0]">December 18, 2024</time>
+                            <time datetime="2024-12-18T04:00:00+02:00" class="text-sm text-[#b0b0b0]">
+                                December 18, 2024
+                            </time>
                             <a href="/salvium/blog/treasury-update/" class="card-link">
                                 Read More 
-                                <i class="fas fa-chevron-down"></i>
+                                <i class="fas fa-chevron-right ml-2"></i>
                             </a>
                         </div>
                     </div>
@@ -230,48 +258,62 @@
     </div>
 
     <!-- CTA Section -->
-    <section class="py-16 relative bg-[#0B272C] mt-8" style="isolation: isolate;">
-        <!-- Background Decoration -->
-        <div class="absolute inset-0" style="z-index: -1;">
-            <img src="/salvium/images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
-            <div class="absolute inset-0 bg-[#0B272C]"></div>
-        </div>
-        
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-bold mb-8" data-aos="fade-up">
-                Ready to Take the <span class="gradient-text">Pill</span>?
-            </h2>
-            <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                Start your journey with Salvium today and be part of the next generation of Private DeFi.
-            </p>
-            <div class="relative z-10">
-                <a href="../get-started.html" class="btn-primary px-12 py-4 text-lg font-semibold hover:opacity-90 transition-opacity inline-block" onclick="handleGetStarted(event)">
-                    Get Started Now
-                </a>
-            </div>
-        </div>
-    </section>
+    <!-- CTA Section -->
+<section class="py-16 relative overflow-hidden bg-[#0B272C] mt-8">
+    <!-- Background Decoration -->
+    <div class="absolute inset-0">
+        <img src="/salvium/images/pools.png" alt="" class="absolute w-full h-full object-cover opacity-20">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0B272C]/95 via-[#0B272C]/80 to-[#0B272C]/95"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h2 class="text-4xl md:text-5xl font-bold mb-8 text-white" data-aos="fade-up">
+            Ready to Take the <span class="gradient-text">Pill</span>?
+        </h2>
+        <p class="text-xl mb-10 max-w-2xl mx-auto text-white" data-aos="fade-up" data-aos-delay="100">
+            Start your journey with Salvium today and be part of the next generation of Private DeFi.
+        </p>
+        <button class="btn-primary px-12 py-4 text-lg font-semibold text-white hover:opacity-90 transition-opacity" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='/salvium/get-started.html'">
+            Get Started Now
+        </button>
+    </div>
+</section>
+
 </main>
 
-<script>
-function handleGetStarted(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    window.location.href = '../get-started.html';
-}
+<script defer>
+    // Lazy loading implementation
+    document.addEventListener('DOMContentLoaded', function() {
+        const lazyImages = document.querySelectorAll('img.lazy-image');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px'
+        });
 
-// Override the document click handler from header.js for our button
-document.addEventListener('DOMContentLoaded', function() {
-    const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
-    if (getStartedBtn) {
-        getStartedBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            window.location.href = '../get-started.html';
-            return false;
-        }, true);
+        lazyImages.forEach(img => imageObserver.observe(img));
+    });
+
+    function handleGetStarted(event) {
+        event.preventDefault();
+        window.location.href = '../get-started.html';
     }
-});
+
+    // Optimize event listener attachment
+    document.addEventListener('DOMContentLoaded', function() {
+        const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
+        if (getStartedBtn) {
+            getStartedBtn.addEventListener('click', handleGetStarted, true);
+        }
+    });
 </script>
 
 
