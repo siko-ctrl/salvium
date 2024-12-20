@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing Our New Desktop Wallet - Salvium Protocol</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/salvium/css/typography.css">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/salvium/css/design-system.css">
+    <link rel="stylesheet" href="/salvium/css/cards.css">
+    <link rel="stylesheet" href="/salvium/css/blog-post.css">
+    
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --color-primary: #00bfa5;
+            --color-primary-dark: #009688;
+            --color-bg-dark: #1e1e1e;
+            --color-bg-darker: rgba(30, 30, 30, 0.95);
+            --color-text: #e0e0e0;
+            --font-primary: 'Josefin Sans', sans-serif;
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text);
+            padding-top: 30px;
+        }
+
+        .mobile-menu {
+            display: none;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(45deg, #00bfa5, #40E0D0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Navigation styles */
+        .nav-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-[#1e1e1e]">
+    <!-- Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
+
+    <!-- Content -->
+    <link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
+
+<main class="relative z-10">
+    <article class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Header Image -->
+            <div class="relative mb-8 md:mb-12">
+                
+                <img src="/salvium/images/blog/wallet-launch.jpg" alt="Introducing Our New Desktop Wallet" class="w-full h-[300px] md:h-[450px] lg:h-[600px] object-cover">
+                
+            </div>
+
+            <div class="py-3 md:py-4">
+                <h1 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 font-heading">Introducing Our New Desktop Wallet</h1>
+                <div class="flex items-center text-gray-300 text-sm md:text-base mb-3 md:mb-4">
+                    <time datetime="2024-12-18T11:00:00+02:00" class="font-medium">December 18, 2024</time>
+                    
+                    <span class="mx-2 text-[#40E0D0]">•</span>
+                    <span style="background: rgba(0, 191, 165, 0.1); color: #00bfa5; padding: 0.25rem 0.75rem; border-radius: 2px; font-size: 0.875rem; display: inline-block; font-family: 'Inter', Arial, sans-serif; text-transform: uppercase;">Product</span>
+                    
+                </div>
+            </div>
+            
+            <div class="prose prose-invert prose-lg mx-auto bg-[#2a2a2a] rounded-none shadow-lg mb-12 p-8">
+                <p>We’re excited to announce the launch of our new desktop wallet, designed from the ground up to provide a seamless and secure experience for managing your digital assets. This release represents a significant milestone in our commitment to making cryptocurrency more accessible and user-friendly.</p>
+
+<p>Our new wallet combines robust security features with an intuitive interface, making it easy for both newcomers and experienced users to manage their assets effectively. We’ve focused on creating a clean, straightforward design that puts the most important features at your fingertips.</p>
+
+<p>Security was our top priority during development. The wallet includes advanced encryption, secure key storage, and multiple layers of protection for your assets. We’ve also implemented features that help prevent common security mistakes, making it safer and easier to manage your cryptocurrency.</p>
+
+<p>The wallet supports all core functions you’d expect: sending and receiving funds, viewing transaction history, and managing multiple addresses. But we’ve also added some unique features that set it apart, including advanced privacy options and integrated backup solutions.</p>
+
+<p>We’re committed to continuing development and improvement of the wallet based on user feedback. Regular updates will bring new features and enhancements, ensuring that our wallet remains at the forefront of cryptocurrency technology.</p>
+
+            </div>
+        </div>
+    </article>
+
+    <!-- Blog Navigation -->
+    <div class="blog-nav bg-[#1e1e1e] border-y border-[#40E0D0]/10 py-8 mt-12">
+    <div class="container mx-auto">
+        <div class="flex items-center justify-center space-x-8">
+            
+            <a href="/salvium/blog/protocol-audit/" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Previous
+            </a>
+            
+
+            <a href="/salvium/blog" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                <svg class="w-6 h-6 inline-block mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12h18M3 6h18M3 18h18"></path>
+                </svg>
+                All Posts
+            </a>
+
+            
+            <a href="/salvium/blog/evolution-of-privacy/" class="text-[#40E0D0] hover:text-[#40E0D0]/80 transition-colors duration-200">
+                Next
+                <svg class="w-6 h-6 inline-block ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </a>
+            
+        </div>
+    </div>
+</div>
+
+</main>
+
+    <!-- Footer will be injected here -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Provide Jekyll paths to JavaScript
+        window.jekyllPaths = {
+            root: '/salvium',
+            images: '/salvium/New Blog Images',
+            assets: '/salvium/Salvium_assets'
+        };
+    </script>
+    <script src="/salvium/js/header_jekyll.js"></script>
+    <script src="/salvium/js/footer_jekyll.js"></script>
+    <script src="/salvium/js/particles.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

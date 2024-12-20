@@ -1,12 +1,6 @@
 ---
 layout: default
 title: Blog
-pagination:
-  enabled: true
-  per_page: 9
-  collection: posts
-  sort_field: 'date'
-  sort_reverse: true
 ---
 
 <link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
@@ -41,62 +35,56 @@ pagination:
 
     <div class="container mx-auto px-4 -mt-12 pb-16">
         <div class="blog-grid mb-12">
-            {% if paginator.posts.size > 0 %}
-                {% for post in paginator.posts %}
-                <div class="blog-grid-item">
-                    <article class="ecosystem-card h-full flex flex-col">
-                        {% if post.image %}
-                        <a href="{{ post.url | relative_url }}">
-                            <div class="blog-post-image-container">
-                                <img 
-                                    src="{{ post.image | relative_url }}"
-                                    alt="{{ post.title }}" 
-                                    class="blog-post-image"
-                                    width="400"
-                                    height="225"
-                                    loading="lazy"
-                                    decoding="async">
-                            </div>
-                        </a>
-                        {% endif %}
-                        <div class="card-content flex-1 flex flex-col">
-                            {% if post.categories %}
-                            <div class="mb-4">
-                                <span class="card-tag">
-                                    {{ post.categories | first }}
-                                </span>
-                            </div>
-                            {% endif %}
-                            <a href="{{ post.url | relative_url }}" class="hover:text-[#00bfa5] transition-colors">
-                                <h2 class="card-title mb-4">{{ post.title }}</h2>
-                            </a>
-                            <p class="card-description flex-1">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-                            <div class="flex items-center justify-between mt-auto pt-4">
-                                <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
-                                    {{ post.date | date: "%B %d, %Y" }}
-                                </time>
-                                <a href="{{ post.url | relative_url }}" class="card-link">
-                                    Read More 
-                                    <i class="fas fa-chevron-right ml-2"></i>
-                                </a>
-                            </div>
+            {% for post in paginator.posts %}
+            <div class="blog-grid-item">
+                <article class="ecosystem-card h-full flex flex-col">
+                    {% if post.image %}
+                    <a href="{{ post.url | relative_url }}">
+                        <div class="blog-post-image-container">
+                            <img 
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
+                                data-src="{{ post.image | relative_url }}" 
+                                alt="{{ post.title }}" 
+                                class="blog-post-image lazy-image"
+                                loading="lazy">
                         </div>
-                    </article>
-                </div>
-                {% endfor %}
-            {% else %}
-                <div class="text-center py-12">
-                    <p class="text-xl text-gray-300">No posts found.</p>
-                </div>
-            {% endif %}
+                    </a>
+                    {% endif %}
+                    <div class="card-content flex-1 flex flex-col">
+                        {% if post.categories %}
+                        <div class="mb-4">
+                            <span class="card-tag">
+                                {{ post.categories | first }}
+                            </span>
+                        </div>
+                        {% endif %}
+                        <a href="{{ post.url | relative_url }}" class="hover:text-[#00bfa5] transition-colors">
+                            <h2 class="card-title mb-4">{{ post.title }}</h2>
+                        </a>
+                        <p class="card-description flex-1">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+                        <div class="flex items-center justify-between mt-auto pt-4">
+                            <time datetime="{{ post.date | date_to_xmlschema }}" class="text-sm text-[#b0b0b0]">
+                                {{ post.date | date: "%B %d, %Y" }}
+                            </time>
+                            <a href="{{ post.url | relative_url }}" class="card-link">
+                                Read More 
+                                <i class="fas fa-chevron-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
         </div>
 
+        <!-- Pagination -->
         {% if paginator.total_pages > 1 %}
         <nav class="mt-12 flex justify-center" aria-label="Blog pagination">
             <div class="flex items-center gap-2">
                 {% if paginator.previous_page %}
                 <a href="{{ paginator.previous_page_path | relative_url }}" 
-                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
+                    <i class="fas fa-chevron-left mr-2"></i>
                     Previous
                 </a>
                 {% endif %}
@@ -104,8 +92,13 @@ pagination:
                 {% for page in (1..paginator.total_pages) %}
                     {% if page == paginator.page %}
                     <span class="px-4 py-2 bg-[#00bfa5] text-white rounded-md">{{ page }}</span>
+                    {% elsif page == 1 %}
+                    <a href="{{ '/blog/' | relative_url }}" 
+                       class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                        {{ page }}
+                    </a>
                     {% else %}
-                    <a href="{% if page == 1 %}{{ '/blog/' | relative_url }}{% else %}{{ site.paginate_path | replace: ':num', page | relative_url }}{% endif %}" 
+                    <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}" 
                        class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
                         {{ page }}
                     </a>
@@ -114,8 +107,9 @@ pagination:
 
                 {% if paginator.next_page %}
                 <a href="{{ paginator.next_page_path | relative_url }}" 
-                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200">
+                   class="px-4 py-2 bg-[#00bfa5]/10 text-[#40E0D0] rounded-md hover:bg-[#00bfa5]/20 transition-colors duration-200 flex items-center">
                     Next
+                    <i class="fas fa-chevron-right ml-2"></i>
                 </a>
                 {% endif %}
             </div>
