@@ -1,1 +1,1 @@
-Sitemap: http://localhost:4000/salvium/sitemap.xml
+Sitemap: https://siko-ctrl.github.io/salvium/sitemap.xml

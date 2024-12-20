@@ -31,9 +31,10 @@ jobs:
         
     - name: Build site
       run: |
-        bundle exec jekyll build
+        JEKYLL_ENV=production bundle exec jekyll build --config _config.yml,_config.production.yml --trace
       env:
         JEKYLL_ENV: production
+        JEKYLL_LOG_LEVEL: debug
         
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
