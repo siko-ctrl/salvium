@@ -1,1 +1,125 @@
-:root{--primary:#00bfa5;--primary-dark:#009688}.blog-hero{position:relative;background:#1e1e1e;overflow:hidden;height:500px;contain:content}.blog-hero__image{width:100%;height:100%;object-fit:cover;opacity:.3;will-change:transform;transform:translateZ(0)}.blog-hero__gradient{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,0.75) 0%,transparent 100%)}.blog-hero__content{position:relative;z-index:10;height:100%;display:flex;align-items:center}.gradient-text{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}.prose img{max-width:800px!important;margin-left:auto!important;margin-right:auto!important;border-radius:8px;box-shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06)}@media(max-width:900px){.prose img{max-width:100%!important}}.blog-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;contain:layout style paint}.blog-grid-item{max-width:100%;margin:0 auto}.blog-post-image-container{position:relative;width:100%;padding-top:56.25%;overflow:hidden;border-radius:0;background:#1e1e1e;contain:strict}.blog-post-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;background-color:#2a2a2a;transition:transform .3s ease;border-radius:0;will-change:transform;transform:translateZ(0)}.blog-post-image:hover{transform:scale(1.05)}.lazy-image{opacity:0;transition:opacity .3s ease-in-out}.lazy-image.loaded{opacity:1}.btn-primary{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%);color:white!important;border-radius:4px;text-decoration:none;-webkit-tap-highlight-color:transparent}.card-image{width:100%;height:100%;object-fit:cover;background-color:#2a2a2a}.blog-tag{background-color:#213532;display:inline-block;text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+:root {
+    --primary: #00bfa5;
+    --primary-dark: #009688;
+}
+
+.blog-hero {
+    position: relative;
+    background: #1e1e1e;
+    overflow: hidden;
+    height: 500px;  /* Fixed height to match other pages */
+}
+
+.blog-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+.blog-hero__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, transparent 100%);
+}
+
+.blog-hero__content {
+    position: relative;
+    z-index: 10;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.prose img {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 900px) {
+    .prose img {
+        max-width: 100% !important;
+    }
+}
+
+/* Blog grid styles */
+.blog-grid {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.blog-grid-item {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.blog-post-image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.blog-post-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #2a2a2a;
+    transition: transform 0.3s ease;
+    border-radius: 0;
+}
+
+.blog-post-image:hover {
+    transform: scale(1.05);
+}
+
+/* Lazy loading styles */
+.lazy-image {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.lazy-image.loaded {
+    opacity: 1;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    color: white !important;
+    border-radius: 4px;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #2a2a2a;
+}
+
+/* Blog tag styles */
+.blog-tag {
+    background-color: #213532;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
