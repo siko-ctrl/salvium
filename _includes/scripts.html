@@ -1,0 +1,56 @@
+<!-- Common Scripts -->
+<script defer src="{{ site.baseurl }}/js/image-fallback.js"></script>
+
+<!-- Conditional Scripts -->
+{% if page.layout == "post" %}
+<script defer src="{{ site.baseurl }}/js/reading-time.js"></script>
+{% endif %}
+
+<!-- Lazy Loading -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lazy load images
+        const lazyImages = document.querySelectorAll('.lazy-image');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        });
+        lazyImages.forEach(img => imageObserver.observe(img));
+
+        // Performance monitoring
+        if ('performance' in window) {
+            const paint = performance.getEntriesByType('paint');
+            if (paint.length > 0) {
+                console.log('First Paint:', paint[0].startTime);
+                console.log('First Contentful Paint:', paint[1].startTime);
+            }
+        }
+    });
+</script>
+
+{% if jekyll.environment == "production" %}
+<!-- Production-only scripts -->
+<script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('{{ site.baseurl }}/sw.js').then(function(registration) {
+                console.log('ServiceWorker registration successful');
+            }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+{% endif %}

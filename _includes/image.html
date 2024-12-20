@@ -1,0 +1,13 @@
+{% assign webp_path = include.src | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
+<picture>
+    <source srcset="{{ site.baseurl }}{{ webp_path }}" type="image/webp">
+    <img 
+        src="{{ site.baseurl }}{{ include.src }}" 
+        alt="{{ include.alt }}"
+        {% if include.class %}class="{{ include.class }}"{% endif %}
+        {% if include.width %}width="{{ include.width }}"{% endif %}
+        {% if include.height %}height="{{ include.height }}"{% endif %}
+        {% if include.loading %}loading="{{ include.loading }}"{% endif %}
+        {% if include.fetchpriority %}fetchpriority="{{ include.fetchpriority }}"{% endif %}
+        {% if include.decoding %}decoding="{{ include.decoding }}"{% endif %}>
+</picture>
