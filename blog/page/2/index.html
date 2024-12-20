@@ -74,7 +74,27 @@
     <div id="particles" class="fixed inset-0 pointer-events-none z-0"></div>
 
     <!-- Content -->
-    <link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
+    <head>
+    <link rel="preconnect" href="https://siko-ctrl.github.io">
+    <link rel="dns-prefetch" href="https://siko-ctrl.github.io">
+    
+    <!-- Preload first 4 post images -->
+    
+        
+            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg">
+        
+    
+        
+            <link rel="preload" as="image" href="/salvium/images/blog/protocol-tx.jpg">
+        
+    
+        
+            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg">
+        
+    
+</head>
+
+<link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
 
 <main class="relative z-10">
     <!-- Hero Section -->
@@ -112,12 +132,19 @@
                     
                     <a href="/salvium/blog/privacy-ama/">
                         <div class="blog-post-image-container">
+                            
                             <img 
-                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-                                data-src="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg" 
+                                src="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg"
                                 alt="TRANSCRIPT - Pursuit of Privacy AMA" 
-                                class="blog-post-image lazy-image"
-                                loading="lazy">
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
+                            
+                            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg">
+                            
                         </div>
                     </a>
                     
@@ -151,12 +178,19 @@
                     
                     <a href="/salvium/blog/protocol-tx-innovation/">
                         <div class="blog-post-image-container">
+                            
                             <img 
-                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-                                data-src="/salvium/images/blog/protocol-tx.jpg" 
+                                src="/salvium/images/blog/protocol-tx.jpg"
                                 alt="Protocol_tx - The Innovation Powering Salvium's Blockchain Future" 
-                                class="blog-post-image lazy-image"
-                                loading="lazy">
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
+                            
+                            <link rel="preload" as="image" href="/salvium/images/blog/protocol-tx.jpg">
+                            
                         </div>
                     </a>
                     
@@ -190,12 +224,19 @@
                     
                     <a href="/salvium/blog/treasury-update/">
                         <div class="blog-post-image-container">
+                            
                             <img 
-                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-                                data-src="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg" 
+                                src="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg"
                                 alt="Salvium Treasury Update - August 2024 funds locked for 2-years" 
-                                class="blog-post-image lazy-image"
-                                loading="lazy">
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
+                            
+                            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg">
+                            
                         </div>
                     </a>
                     
@@ -282,36 +323,43 @@
 </main>
 
 <script defer>
-    // Lazy loading implementation
-    document.addEventListener('DOMContentLoaded', function() {
-        const lazyImages = document.querySelectorAll('img.lazy-image');
-        
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+    // Optimized image loading
+    document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            root: null,
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        };
+
+        // Preload next set of images
+        const preloadNextImages = () => {
+            const images = Array.from(document.querySelectorAll('.blog-post-image[loading="lazy"]'));
+            const nextImages = images.slice(0, 4); // Next 4 images
+            
+            nextImages.forEach(img => {
+                img.setAttribute('loading', 'eager');
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = img.src;
+                document.head.appendChild(preloadLink);
+            });
+        };
+
+        // Initialize intersection observer for next batch
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
+                    preloadNextImages();
+                    imageObserver.disconnect(); // Only need to do this once
                 }
             });
-        }, {
-            rootMargin: '50px 0px'
-        });
+        }, options);
 
-        lazyImages.forEach(img => imageObserver.observe(img));
-    });
-
-    function handleGetStarted(event) {
-        event.preventDefault();
-        window.location.href = '../get-started.html';
-    }
-
-    // Optimize event listener attachment
-    document.addEventListener('DOMContentLoaded', function() {
-        const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
-        if (getStartedBtn) {
-            getStartedBtn.addEventListener('click', handleGetStarted, true);
+        // Observe the last eager-loaded image to trigger next batch
+        const eagerImages = document.querySelectorAll('.blog-post-image[fetchpriority="high"]');
+        if (eagerImages.length > 0) {
+            imageObserver.observe(eagerImages[eagerImages.length - 1]);
         }
     });
 </script>
