@@ -1,0 +1,50 @@
+# Production-specific configurations
+sass:
+  style: compressed
+  sourcemap: never
+
+# Disable development-specific features
+limit_posts: 0
+unpublished: false
+future: false
+safe: true
+
+# Advanced optimization settings
+liquid:
+  strict_filters: true
+  strict_variables: true
+  error_mode: strict
+
+# Enable aggressive caching
+keep_files:
+  - .git
+  - assets
+  - images
+  - favicon
+  - css
+  - js
+
+# Exclude unnecessary files from the build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .env
+  - .env.production
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE
+  - "*.log"
+  - "*.sh"
+  - "*.yml"
+  - "*.config.js"
+  - "*.lock"
+  - "*.md"
+  - "!README.md"
+
+# Enable incremental builds for faster rebuilds
+incremental: true

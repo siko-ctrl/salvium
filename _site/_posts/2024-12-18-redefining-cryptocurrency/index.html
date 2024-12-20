@@ -3,20 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Redefining Cryptocurrency for the Modern Era - Salvium Protocol</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/salvium/css/design-system.css" as="style">
+    <link rel="preload" href="/salvium/js/header_jekyll.js" as="script">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/salvium/css/typography.css">
-    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/salvium/css/design-system.css">
-    <link rel="stylesheet" href="/salvium/css/cards.css">
-    <link rel="stylesheet" href="/salvium/css/blog-post.css">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     
-    <!-- Custom Styles -->
+    <!-- Critical CSS inline -->
     <style>
+        /* Critical CSS */
+.mobile-menu {
+    display: none;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, #00bfa5, #40E0D0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: inline-block;
+}
+
+.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 191, 165, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Critical layout styles */
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+/* Above the fold content */
+.hero-section {
+    min-height: calc(100vh - 80px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Prevent content flash */
+.no-js img.lazyload {
+    display: none;
+}
+
+/* First meaningful paint optimizations */
+.skeleton-loading {
+    background: linear-gradient(90deg, #2a2a2a 25%, #333 50%, #2a2a2a 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+        
         :root {
             --color-primary: #00bfa5;
             --color-primary-dark: #009688;
@@ -35,39 +114,29 @@
             color: var(--color-text);
             padding-top: 30px;
         }
-
-        .mobile-menu {
-            display: none;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        /* Gradient Text */
-        .gradient-text {
-            background: linear-gradient(45deg, #00bfa5, #40E0D0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* Navigation styles */
-        .nav-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            background: linear-gradient(to bottom, rgba(30, 30, 30, 0.19), rgba(30, 30, 30, 0.61));
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-bottom: 1px solid rgba(0, 191, 165, 0.1);
-            transition: all 0.3s ease;
-        }
     </style>
+    
+    <!-- Non-critical CSS -->
+    <link rel="stylesheet" href="/salvium/css/typography.css" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/salvium/css/design-system.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/salvium/css/cards.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/salvium/css/blog-post.css" media="print" onload="this.media='all'">
+    
+    <!-- Fallback for CSS -->
+    <noscript>
+        <link rel="stylesheet" href="/salvium/css/typography.css">
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://unpkg.com/tailwindcss@^2.2.19/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/salvium/css/design-system.css">
+        <link rel="stylesheet" href="/salvium/css/cards.css">
+        <link rel="stylesheet" href="/salvium/css/blog-post.css">
+    </noscript>
 </head>
 <body class="bg-[#1e1e1e]">
     <!-- Particles Container -->
@@ -135,8 +204,8 @@
     <!-- Footer will be injected here -->
     <div id="footer"></div>
 
-    <!-- Scripts -->
-    <script>
+    <!-- Defer non-critical scripts -->
+    <script defer>
         // Provide Jekyll paths to JavaScript
         window.jekyllPaths = {
             root: '/salvium',
@@ -144,12 +213,9 @@
             assets: '/salvium/Salvium_assets'
         };
     </script>
-    <script src="/salvium/js/header_jekyll.js"></script>
-    <script src="/salvium/js/footer_jekyll.js"></script>
-    <script src="/salvium/js/particles.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <script defer src="/salvium/js/header_jekyll.js"></script>
+    <script defer src="/salvium/js/footer_jekyll.js"></script>
+    <script defer src="/salvium/js/particles.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" onload="AOS.init();"></script>
 </body>
 </html>
