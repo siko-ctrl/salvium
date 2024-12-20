@@ -3,6 +3,18 @@ layout: default
 title: Blog
 ---
 
+<head>
+    <link rel="preconnect" href="{{ site.url }}">
+    <link rel="dns-prefetch" href="{{ site.url }}">
+    
+    <!-- Preload first 4 post images -->
+    {% for post in paginator.posts limit:4 %}
+        {% if post.image %}
+            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
+        {% endif %}
+    {% endfor %}
+</head>
+
 <link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
 
 <main class="relative z-10">
@@ -41,12 +53,21 @@ title: Blog
                     {% if post.image %}
                     <a href="{{ post.url | relative_url }}">
                         <div class="blog-post-image-container">
+                            {% assign priority = forloop.index <= 4 %}
                             <img 
-                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" 
-                                data-src="{{ post.image | relative_url }}" 
+                                src="{{ post.image | relative_url }}"
                                 alt="{{ post.title }}" 
-                                class="blog-post-image lazy-image"
-                                loading="lazy">
+                                class="blog-post-image"
+                                {% if priority %}
+                                fetchpriority="high"
+                                loading="eager"
+                                {% else %}
+                                loading="lazy"
+                                {% endif %}
+                                decoding="async">
+                            {% if priority %}
+                            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
+                            {% endif %}
                         </div>
                     </a>
                     {% endif %}
@@ -122,36 +143,43 @@ title: Blog
 </main>
 
 <script defer>
-    // Lazy loading implementation
-    document.addEventListener('DOMContentLoaded', function() {
-        const lazyImages = document.querySelectorAll('img.lazy-image');
-        
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+    // Optimized image loading
+    document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            root: null,
+            rootMargin: '50px 0px',
+            threshold: 0.1
+        };
+
+        // Preload next set of images
+        const preloadNextImages = () => {
+            const images = Array.from(document.querySelectorAll('.blog-post-image[loading="lazy"]'));
+            const nextImages = images.slice(0, 4); // Next 4 images
+            
+            nextImages.forEach(img => {
+                img.setAttribute('loading', 'eager');
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = img.src;
+                document.head.appendChild(preloadLink);
+            });
+        };
+
+        // Initialize intersection observer for next batch
+        const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.add('loaded');
-                    observer.unobserve(img);
+                    preloadNextImages();
+                    imageObserver.disconnect(); // Only need to do this once
                 }
             });
-        }, {
-            rootMargin: '50px 0px'
-        });
+        }, options);
 
-        lazyImages.forEach(img => imageObserver.observe(img));
-    });
-
-    function handleGetStarted(event) {
-        event.preventDefault();
-        window.location.href = '../get-started.html';
-    }
-
-    // Optimize event listener attachment
-    document.addEventListener('DOMContentLoaded', function() {
-        const getStartedBtn = document.querySelector('a[href="../get-started.html"]');
-        if (getStartedBtn) {
-            getStartedBtn.addEventListener('click', handleGetStarted, true);
+        // Observe the last eager-loaded image to trigger next batch
+        const eagerImages = document.querySelectorAll('.blog-post-image[fetchpriority="high"]');
+        if (eagerImages.length > 0) {
+            imageObserver.observe(eagerImages[eagerImages.length - 1]);
         }
     });
 </script>
