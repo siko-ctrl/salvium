@@ -3,7 +3,7 @@ layout: post
 title: "Salvium Treasury Update - August 2024 funds locked for 2-years"
 date: 2024-12-18 04:00:00 +0200
 categories: Treasury
-image: /New Blog Images/Blog Aug Tres.jpg
+image: /images/blog/protocol-tx.jpg
 excerpt: "Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment."
 ---
 

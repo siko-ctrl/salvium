@@ -31,7 +31,7 @@
         {
             "title": "Protocol Security: A Comprehensive Audit Overview",
             "url": "/salvium/blog/protocol-audit/",
-            "image": "/salvium/New%20Blog%20Images/Blog%20Audit.jpg",
+            "image": "/salvium/images/blog/protocol-audit.jpg",
             "date": "December 18, 2024",
             "excerpt": "An in-depth look at our recent protocol security audit, highlighting our commitment to maintaining the highest security standards in blockchain technology.",
             "categories": "Security"
@@ -58,7 +58,7 @@
         {
             "title": "TRANSCRIPT - Pursuit of Privacy AMA",
             "url": "/salvium/blog/privacy-ama/",
-            "image": "/salvium/New%20Blog%20Images/Blog%20AMA%20PP.jpg",
+            "image": "/salvium/images/blog/privacy-evolution.jpg",
             "date": "December 18, 2024",
             "excerpt": "Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach.",
             "categories": "Community"
@@ -76,7 +76,7 @@
         {
             "title": "Salvium Treasury Update - August 2024 funds locked for 2-years",
             "url": "/salvium/blog/treasury-update/",
-            "image": "/salvium/New%20Blog%20Images/Blog%20Aug%20Tres.jpg",
+            "image": "/salvium/images/blog/protocol-tx.jpg",
             "date": "December 18, 2024",
             "excerpt": "Important update on the Salvium Treasury: August 2024 funds have been locked for a 2-year period, demonstrating our long-term commitment.",
             "categories": "Treasury"
