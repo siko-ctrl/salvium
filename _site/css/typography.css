@@ -93,18 +93,6 @@ a:not(.btn):hover {
     h1, .h1 { font-size: calc(var(--text-4xl) * 0.9); }
     h2, .h2 { font-size: calc(var(--text-3xl) * 0.9); }
     h3, .h3 { font-size: calc(var(--text-2xl) * 0.9); }
-    
-    /* Increase text size for better mobile readability */
-    p, 
-    .text-content,
-    .card-content p,
-    .description,
-    .feature-description,
-    li:not(.nav-item),
-    .text-base {
-        font-size: calc(var(--text-base) * 1.125);
-        line-height: 1.7;
-    }
 }
 
 /* Helper Classes */

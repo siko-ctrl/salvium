@@ -215,7 +215,7 @@ html {
 
 body {
 	background-color: #1A1A1A;
-	background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.webp");
+	background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 	background-size: auto, cover;
 	background-attachment: fixed, fixed;
 	background-position: center, center;
@@ -2772,6 +2772,10 @@ ul.actions.fit.stacked {
 		width: 100%;
 	}
 
+	ul.actions:not(.fixed) li:first-child {
+		padding-top: 0;
+	}
+
 	ul.actions:not(.fixed) li input[type="submit"],
 	ul.actions:not(.fixed) li input[type="reset"],
 	ul.actions:not(.fixed) li input[type="button"],
@@ -3610,7 +3614,7 @@ body.is-menu-visible #menu .inner {
 	#banner {
 		padding: 7em 0 8.25em 0;
 		background-color: #2e3141;
-		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.webp");
+		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 		background-size: auto, cover;
 		background-position: center, center;
 		margin-bottom: -6.5em;
@@ -3720,7 +3724,7 @@ body.is-preload #banner p {
 	#wrapper>header {
 		padding: 9em 0 6.25em 0;
 		background-color: #2e3141;
-		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.webp");
+		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 		background-size: auto, cover;
 		background-position: center, 0% 30%;
 		margin-bottom: -6.5em;
@@ -4172,7 +4176,7 @@ body.is-preload #banner p {
 
 	#footer {
 		background-color: #2e3141;
-		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.webp");
+		background-image: linear-gradient(to top, rgba(46, 49, 65, 0.8), rgba(46, 49, 65, 0.8)), url("../../images/bg.jpg");
 		background-size: auto, cover;
 		background-position: center, center;
 		margin-top: -6.5em;

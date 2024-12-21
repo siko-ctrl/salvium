@@ -4,133 +4,31 @@ title: Blog
 ---
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salvium Blog</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="{{ site.url }}">
+    <link rel="dns-prefetch" href="{{ site.url }}">
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        /* Base styles */
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--background);
-            color: var(--text);
-        }
-
-        .blog-post-image-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            overflow: hidden;
-            background: var(--background-light);
-            border-radius: 0.5rem;
-        }
-
-        .blog-post-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.15s ease-in-out;
-        }
-
-        .blog-post-image.loaded {
-            opacity: 1;
-        }
-
-        /* Add loading animation */
-        .blog-post-image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .blog-post-image.loaded + .blog-post-image-container::before {
-            display: none;
-        }
-    </style>
-
+    <!-- Preload first 4 post images -->
     {% for post in paginator.posts limit:4 %}
         {% if post.image %}
-            {% assign image_path = post.image | relative_url %}
-            {% assign image_name = image_path | split: '/' | last %}
-            {% assign normalized_name = image_name | replace: ' ', '-' | downcase %}
-            {% assign normalized_path = image_path | replace: image_name, normalized_name %}
-            {% assign webp_path = normalized_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
-            {% if forloop.index <= 1 %}
-            <!-- Only preload the first visible image -->
-            <link rel="preload" href="{{ webp_path }}" as="image" type="image/webp" fetchpriority="high" crossorigin="anonymous">
-            <link rel="preload" href="{{ normalized_path }}" as="image" fetchpriority="high" crossorigin="anonymous">
-            {% endif %}
+            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
         {% endif %}
     {% endfor %}
 </head>
 
 <link rel="stylesheet" href="{{ site.baseurl }}/blog/assets/css/blog.css">
 
-<style>
-    .blog-post-image-container {
-        position: relative;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        background: var(--background-light); /* Placeholder color */
-        overflow: hidden;
-    }
-    
-    .blog-post-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background-color: var(--background-light);
-    }
-
-    /* Add a subtle loading animation */
-    @keyframes imageLoad {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .blog-post-image {
-        animation: imageLoad 0.2s ease-out;
-    }
-</style>
-
 <main class="relative z-10">
     <!-- Hero Section -->
     <section class="blog-hero">
         <div class="absolute inset-0">
-            <picture>
-                <source 
-                    srcset="{{ '/images/newimages/Page Headers/Blog Header.webp' | relative_url }}"
-                    type="image/webp"
-                    fetchpriority="high">
-                <img 
-                    src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
-                    alt="Blog Header" 
-                    class="blog-hero__image"
-                    width="1920"
-                    height="1080"
-                    loading="eager"
-                    fetchpriority="high">
-            </picture>
+            <img 
+                src="{{ '/images/newimages/Page Headers/Blog Header.jpg' | relative_url }}" 
+                alt="Blog Header" 
+                class="blog-hero__image"
+                width="1920"
+                height="1080"
+                loading="eager"
+                fetchpriority="high">
             <div class="blog-hero__gradient"></div>
         </div>
         <div class="blog-hero__content">
@@ -155,36 +53,21 @@ title: Blog
                     {% if post.image %}
                     <a href="{{ post.url | relative_url }}">
                         <div class="blog-post-image-container">
-                            {% if forloop.index <= 4 %}
-                                {% assign priority = true %}
-                            {% else %}
-                                {% assign priority = false %}
+                            {% assign priority = forloop.index <= 4 %}
+                            <img 
+                                src="{{ post.image | relative_url }}"
+                                alt="{{ post.title }}" 
+                                class="blog-post-image"
+                                {% if priority %}
+                                fetchpriority="high"
+                                loading="eager"
+                                {% else %}
+                                loading="lazy"
+                                {% endif %}
+                                decoding="async">
+                            {% if priority %}
+                            <link rel="preload" as="image" href="{{ post.image | relative_url }}">
                             {% endif %}
-                            {% assign image_path = post.image | relative_url %}
-                            {% assign image_name = image_path | split: '/' | last %}
-                            {% assign normalized_name = image_name | replace: ' ', '-' | downcase %}
-                            {% assign normalized_path = image_path | replace: image_name, normalized_name %}
-                            {% assign webp_path = normalized_path | replace: '.jpg', '.webp' | replace: '.png', '.webp' %}
-                            <picture>
-                                <source
-                                    srcset="{{ webp_path }}"
-                                    type="image/webp"
-                                    {% if priority %}fetchpriority="high"{% endif %}>
-                                <img 
-                                    src="{{ normalized_path }}"
-                                    alt="{{ post.title }}" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    {% if priority %}
-                                    fetchpriority="high"
-                                    loading="eager"
-                                    {% else %}
-                                    loading="lazy"
-                                    {% endif %}
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     {% endif %}
@@ -264,44 +147,36 @@ title: Blog
     document.addEventListener('DOMContentLoaded', () => {
         const options = {
             root: null,
-            rootMargin: '100px 0px', // Increased margin for earlier loading
+            rootMargin: '50px 0px',
             threshold: 0.1
         };
 
-        // Preload next batch of images
+        // Preload next set of images
         const preloadNextImages = () => {
             const images = Array.from(document.querySelectorAll('.blog-post-image[loading="lazy"]'));
-            const nextImages = images.slice(0, 4);
+            const nextImages = images.slice(0, 4); // Next 4 images
             
             nextImages.forEach(img => {
-                const parent = img.closest('picture');
-                if (parent) {
-                    const source = parent.querySelector('source');
-                    if (source) {
-                        // Instead of preload, use prefetch which is more appropriate for this use case
-                        const link = document.createElement('link');
-                        link.rel = 'prefetch';
-                        link.href = source.srcset;
-                        link.type = 'image/webp';
-                        document.head.appendChild(link);
-                    }
-                }
-                // Set loading to eager for the next batch of images
-                img.loading = 'eager';
+                img.setAttribute('loading', 'eager');
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = img.src;
+                document.head.appendChild(preloadLink);
             });
         };
 
-        // Create intersection observer for next batch
+        // Initialize intersection observer for next batch
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     preloadNextImages();
-                    imageObserver.disconnect();
+                    imageObserver.disconnect(); // Only need to do this once
                 }
             });
         }, options);
 
-        // Start observing the last eager-loaded image
+        // Observe the last eager-loaded image to trigger next batch
         const eagerImages = document.querySelectorAll('.blog-post-image[fetchpriority="high"]');
         if (eagerImages.length > 0) {
             imageObserver.observe(eagerImages[eagerImages.length - 1]);

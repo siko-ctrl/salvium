@@ -3,7 +3,7 @@ layout: post
 title: "TRANSCRIPT - Pursuit of Privacy AMA"
 date: 2024-12-18 08:00:00 +0200
 categories: Community
-image: /images/blog/privacy-evolution.jpg
+image: /New Blog Images/Blog AMA PP.jpg
 excerpt: "Full transcript of our recent AMA session discussing privacy in cryptocurrency and Salvium's unique approach."
 ---
 

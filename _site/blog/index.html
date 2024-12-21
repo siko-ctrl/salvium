@@ -75,141 +75,30 @@
 
     <!-- Content -->
     <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Salvium Blog</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="http://localhost:4000">
+    <link rel="dns-prefetch" href="http://localhost:4000">
     
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        /* Base styles */
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--background);
-            color: var(--text);
-        }
-
-        .blog-post-image-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
-            overflow: hidden;
-            background: var(--background-light);
-            border-radius: 0.5rem;
-        }
-
-        .blog-post-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.15s ease-in-out;
-        }
-
-        .blog-post-image.loaded {
-            opacity: 1;
-        }
-
-        /* Add loading animation */
-        .blog-post-image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: loading 1.5s infinite;
-        }
-
-        @keyframes loading {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-
-        .blog-post-image.loaded + .blog-post-image-container::before {
-            display: none;
-        }
-    </style>
-
+    <!-- Preload first 4 post images -->
     
         
-            
-            
-            
-            
-            
-            
-            <!-- Only preload the first visible image -->
-            <link rel="preload" href="/salvium/images/blog/difficulty-algo.webp" as="image" type="image/webp" fetchpriority="high" crossorigin="anonymous">
-            <link rel="preload" href="/salvium/images/blog/difficulty-algo.jpg" as="image" fetchpriority="high" crossorigin="anonymous">
-            
+            <link rel="preload" as="image" href="/salvium/images/blog/difficulty-algo.jpg">
         
     
         
-            
-            
-            
-            
-            
-            
+            <link rel="preload" as="image" href="/salvium/images/blog/privacy-evolution.jpg">
         
     
         
-            
-            
-            
-            
-            
-            
+            <link rel="preload" as="image" href="/salvium/images/blog/wallet-launch.jpg">
         
     
         
-            
-            
-            
-            
-            
-            
+            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20Audit.jpg">
         
     
 </head>
 
 <link rel="stylesheet" href="/salvium/blog/assets/css/blog.css">
-
-<style>
-    .blog-post-image-container {
-        position: relative;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
-        background: var(--background-light); /* Placeholder color */
-        overflow: hidden;
-    }
-    
-    .blog-post-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        background-color: var(--background-light);
-    }
-
-    /* Add a subtle loading animation */
-    @keyframes imageLoad {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
-
-    .blog-post-image {
-        animation: imageLoad 0.2s ease-out;
-    }
-</style>
 
 <main class="relative z-10">
     <!-- Hero Section -->
@@ -248,29 +137,18 @@
                     <a href="/salvium/blog/v06-series-update/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/images/blog/difficulty-algo.jpg"
+                                alt="Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/images/blog/difficulty-algo.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/difficulty-algo.webp"
-                                    type="image/webp"
-                                    fetchpriority="high">
-                                <img 
-                                    src="/salvium/images/blog/difficulty-algo.jpg"
-                                    alt="Understanding Salvium's v0.6 Series - Improved Difficulty Algorithm" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    fetchpriority="high"
-                                    loading="eager"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -305,29 +183,18 @@
                     <a href="/salvium/blog/evolution-of-privacy/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/images/blog/privacy-evolution.jpg"
+                                alt="The Evolution of Privacy in Cryptocurrency" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/images/blog/privacy-evolution.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/privacy-evolution.webp"
-                                    type="image/webp"
-                                    fetchpriority="high">
-                                <img 
-                                    src="/salvium/images/blog/privacy-evolution.jpg"
-                                    alt="The Evolution of Privacy in Cryptocurrency" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    fetchpriority="high"
-                                    loading="eager"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -362,29 +229,18 @@
                     <a href="/salvium/blog/desktop-wallet-launch/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/images/blog/wallet-launch.jpg"
+                                alt="Introducing Our New Desktop Wallet" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/images/blog/wallet-launch.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/wallet-launch.webp"
-                                    type="image/webp"
-                                    fetchpriority="high">
-                                <img 
-                                    src="/salvium/images/blog/wallet-launch.jpg"
-                                    alt="Introducing Our New Desktop Wallet" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    fetchpriority="high"
-                                    loading="eager"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -419,29 +275,18 @@
                     <a href="/salvium/blog/protocol-audit/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/New%20Blog%20Images/Blog%20Audit.jpg"
+                                alt="Protocol Security: A Comprehensive Audit Overview" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/New%20Blog%20Images/Blog%20Audit.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/protocol-audit.webp"
-                                    type="image/webp"
-                                    fetchpriority="high">
-                                <img 
-                                    src="/salvium/images/blog/protocol-audit.jpg"
-                                    alt="Protocol Security: A Comprehensive Audit Overview" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    fetchpriority="high"
-                                    loading="eager"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -476,28 +321,18 @@
                     <a href="/salvium/blog/dawn-of-new-market/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/images/blog/new-dawn.jpg"
+                                alt="The Dawn of a New Market" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/images/blog/new-dawn.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/new-dawn.webp"
-                                    type="image/webp"
-                                    >
-                                <img 
-                                    src="/salvium/images/blog/new-dawn.jpg"
-                                    alt="The Dawn of a New Market" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    loading="lazy"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -532,28 +367,18 @@
                     <a href="/salvium/blog/redefining-cryptocurrency/">
                         <div class="blog-post-image-container">
                             
+                            <img 
+                                src="/salvium/images/blog/crypto-landscape.jpg"
+                                alt="Redefining Cryptocurrency for the Modern Era" 
+                                class="blog-post-image"
+                                
+                                fetchpriority="high"
+                                loading="eager"
+                                
+                                decoding="async">
                             
+                            <link rel="preload" as="image" href="/salvium/images/blog/crypto-landscape.jpg">
                             
-                            
-                            
-                            
-                            <picture>
-                                <source
-                                    srcset="/salvium/images/blog/crypto-landscape.webp"
-                                    type="image/webp"
-                                    >
-                                <img 
-                                    src="/salvium/images/blog/crypto-landscape.jpg"
-                                    alt="Redefining Cryptocurrency for the Modern Era" 
-                                    class="blog-post-image"
-                                    width="800"
-                                    height="450"
-                                    
-                                    loading="lazy"
-                                    
-                                    decoding="async"
-                                    onload="this.classList.add('loaded')">
-                            </picture>
                         </div>
                     </a>
                     
@@ -644,44 +469,36 @@
     document.addEventListener('DOMContentLoaded', () => {
         const options = {
             root: null,
-            rootMargin: '100px 0px', // Increased margin for earlier loading
+            rootMargin: '50px 0px',
             threshold: 0.1
         };
 
-        // Preload next batch of images
+        // Preload next set of images
         const preloadNextImages = () => {
             const images = Array.from(document.querySelectorAll('.blog-post-image[loading="lazy"]'));
-            const nextImages = images.slice(0, 4);
+            const nextImages = images.slice(0, 4); // Next 4 images
             
             nextImages.forEach(img => {
-                const parent = img.closest('picture');
-                if (parent) {
-                    const source = parent.querySelector('source');
-                    if (source) {
-                        // Instead of preload, use prefetch which is more appropriate for this use case
-                        const link = document.createElement('link');
-                        link.rel = 'prefetch';
-                        link.href = source.srcset;
-                        link.type = 'image/webp';
-                        document.head.appendChild(link);
-                    }
-                }
-                // Set loading to eager for the next batch of images
-                img.loading = 'eager';
+                img.setAttribute('loading', 'eager');
+                const preloadLink = document.createElement('link');
+                preloadLink.rel = 'preload';
+                preloadLink.as = 'image';
+                preloadLink.href = img.src;
+                document.head.appendChild(preloadLink);
             });
         };
 
-        // Create intersection observer for next batch
+        // Initialize intersection observer for next batch
         const imageObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     preloadNextImages();
-                    imageObserver.disconnect();
+                    imageObserver.disconnect(); // Only need to do this once
                 }
             });
         }, options);
 
-        // Start observing the last eager-loaded image
+        // Observe the last eager-loaded image to trigger next batch
         const eagerImages = document.querySelectorAll('.blog-post-image[fetchpriority="high"]');
         if (eagerImages.length > 0) {
             imageObserver.observe(eagerImages[eagerImages.length - 1]);
