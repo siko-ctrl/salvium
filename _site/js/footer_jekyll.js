@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="container mx-auto px-4 py-12">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div class="text-center">
-                    <img src="${window.jekyllPaths.root}/Salvium_assets/coin_icon/white/square/transparent/salvium_coin_square_white_512x512px_transparent.png" 
+                    <img src="${window.jekyllPaths.root}/images/salvium_coin_square_white_512x512px_transparent.png" 
                          alt="Salvium Logo" 
                          class="h-20 w-auto mx-auto mb-6">
                     <p class="text-white max-w-md mx-auto mb-6 font-arial">Private blockchain with DeFi</p>

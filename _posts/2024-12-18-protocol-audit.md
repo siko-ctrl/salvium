@@ -3,7 +3,7 @@ layout: post
 title: "Protocol Security: A Comprehensive Audit Overview"
 date: 2024-12-18 10:00:00 +0200
 categories: Security
-image: /New Blog Images/Blog Audit.jpg
+image: /images/Blog Audit.jpg
 excerpt: "An in-depth look at our recent protocol security audit, highlighting our commitment to maintaining the highest security standards in blockchain technology."
 ---
 

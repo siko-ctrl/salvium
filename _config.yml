@@ -19,6 +19,12 @@ plugins:
 paginate: 6
 paginate_path: /blog/page/:num/
 
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
 # Asset paths
 defaults:
   -
@@ -28,73 +34,34 @@ defaults:
       layout: "default"
   -
     scope:
-      path: "images"
+      path: "assets/images"
     values:
       image: true
   -
     scope:
-      path: "New Blog Images"
+      path: "assets/icons"
     values:
       image: true
   -
     scope:
-      path: "Salvium_assets"
-    values:
-      image: true
-  -
-    scope:
-      path: "css"
+      path: "styles/css"
     values:
       css: true
   -
     scope:
-      path: "js"
+      path: "scripts"
     values:
       js: true
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      permalink: /blog/:title/
 
-# Include directories
-include:
-  - css
-  - js
-  - images
-  - New Blog Images
-  - Salvium_assets
-  - _posts
-  - blog
-  - posts.json
-
-# Exclude from processing
+# Exclude files and folders
 exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
+  - vendor
+  - .jekyll-cache
+  - .sass-cache
   - package.json
   - package-lock.json
   - README.md
-  - .gitignore
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-
-# Keep files
-keep_files:
-  - css
-  - js
-  - images
-  - New Blog Images
-  - Salvium_assets
-  - posts.json
-
-# Collections
-collections:
-  posts:
-    output: true
-    permalink: /blog/:title/
+  - LICENSE

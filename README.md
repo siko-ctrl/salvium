@@ -87,18 +87,28 @@ Our design system ensures consistency across the entire website:
 ## 📁 Project Structure
 
 ```
-salvium-landing-page/
-├── css/
-│   ├── design-system.css    # Design tokens and variables
-│   ├── typography.css       # Typography styles
-│   ├── base.css            # Base styles
-│   └── cards.css           # Component styles
-├── js/
-│   ├── particles.js        # Background animation
-│   └── stats.js           # Blockchain statistics
-├── images/                 # Optimized images
-├── components/            # Reusable HTML components
-└── pages/                # Individual page templates
+salvium/
+├── docs/                  # Documentation files
+│   ├── litepapers/       # Technical documentation
+│   └── *.md              # Other documentation files
+├── public/               # Built files (generated)
+├── scripts/              # Build and utility scripts
+├── src/                  # Source files
+│   ├── assets/          # Static assets
+│   │   ├── images/      # Images and photos
+│   │   ├── fonts/       # Font files
+│   │   └── icons/       # Icons and favicons
+│   ├── components/      # Reusable components
+│   ├── layouts/         # Page layouts
+│   ├── pages/          # HTML pages
+│   ├── posts/          # Blog posts and articles
+│   ├── scripts/        # JavaScript files
+│   └── styles/         # CSS and SCSS files
+│       ├── css/        # CSS files
+│       └── scss/       # SCSS files (if used)
+├── .env.production      # Production environment variables
+├── package.json         # Project dependencies and scripts
+└── tailwind.config.js   # Tailwind CSS configuration
 ```
 
 ## 🛠 Technology Stack
@@ -127,9 +137,9 @@ salvium-landing-page/
 We welcome contributions! Please follow these steps:
 
 1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
 ## 📝 License
@@ -150,5 +160,5 @@ Project Link: [https://github.com/salvium/landing-page](https://github.com/salvi
 ---
 
 <div align="center">
-Made with ❤️ by the Salvium Team
+Made with ❤️ by a salvium contributer
 </div>
